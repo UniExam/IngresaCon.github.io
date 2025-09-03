@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPN</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-image: url('Background.png');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: repeat;
+}
+header {
+    background-color: #000000;
+    color: white;
+    padding: 10px; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea todos los elementos verticalmente al centro */
+    height: 40px; /* Altura ajustada para mejor visibilidad */
+    position: relative;
+    z-index: 1000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.contact {
+    color: white;
+    font-size: 18px;
+    display: flex; /* Asegura que el texto pueda alinearse correctamente */
+    align-items: center; /* Centra verticalmente el texto */
+}
+/* IMAGENES DE REDES DEL HEADER */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
+    align-items: center; /* Centra verticalmente los iconos */
+}
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos a ambos lados */
+    align-items: center; /* Centra verticalmente todos los elementos */
+    background-color: #ffffff;
+    padding: 5px 2%; /* Ajusta el padding para un mejor espaciado */
+    color: rgb(0, 0, 0);
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+}
+.logo img {
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    width: 10vw; /* Usa un valor en vw para un tamaño responsivo */
+    max-height: 60px; /* Limita la altura máxima del logo */
+}
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flex para alinear los elementos de la lista en línea */
+    flex-wrap: wrap; /* Permite que los elementos de la lista se envuelvan */
+}
+.main-nav li {
+    margin-left: 10px; /* Espacio entre los elementos de la lista */
+}
+.main-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px; /* Espaciado interno de los enlaces */
+}
+.main-nav a:hover {
+    background: #707272; /* Color de fondo al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Centra los elementos de la lista */
+    }
+
+    .main-nav li {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
+    }
+}
+.dropdown {
+    position: relative; /* Necesario para posicionar el contenido del dropdown */
+    display: inline-block; /* Hace que el dropdown se muestre en línea */
+}
+
+.dropdown-content {
+    display: none; /* Oculta el contenido del dropdown por defecto */
+    position: absolute; /* Posiciona el contenido de forma absoluta */
+    background-color: #ffffff; /* Color de fondo del dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    z-index: 1001; /* Asegura que el dropdown esté por encima de otros elementos */
+    border-radius: 5px; /* Bordes redondeados para el dropdown */
+    min-width: 120px; /* Reduce el ancho mínimo del dropdown */
+}
+
+.dropdown-content a {
+    padding: 4px 8px; /* Reduce el espaciado interno de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    text-align: center; /* Centra el texto en el enlace */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco para el enlace */
+    font-size: 17px; /* Tamaño de fuente más pequeño */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.dropdown-content a:hover {
+    background-color: #c7bebe; /* Color de fondo al pasar el mouse sobre el enlace */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el contenido del dropdown al pasar el mouse */
+}
+
+.dropdown:hover > a {
+    background-color: #707272; /* Color de fondo para el enlace al pasar el mouse */
+    color: white; /* Cambia el color del texto al blanco */
+}
+
+.work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 30px;
+    height: 70vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #a21f47; /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+        color: rgb(138, 7, 7); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+
+    .work-text h1 span {
+        font-style: italic;
+    }
+
+    .work-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    :root {
+    --wine-color: #6b0f2c;
+    --light-color: #f4f4f4;
+    --text-color: #333;
+}
+
+.new-section-body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.new-course-container {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-top: 50px;
+    margin: 50px auto; /* Espacio arriba y abajo, centrado horizontalmente */
+    max-width: 800px; /* Controla el ancho */
+}
+
+.new-header {
+    background-color: var(--wine-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.new-header h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.new-header-divider {
+    height: 4px;
+    background-color: white;
+    width: 50px;
+    margin: 0 auto;
+}
+
+.new-main {
+    padding: 20px;
+}
+
+.new-main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.new-left-column {
+    flex: 2;
+}
+
+.new-right-column {
+    flex: 1;
+}
+
+.new-section {
+    margin-bottom: 25px;
+}
+
+.new-section h2 {
+    color: var(--wine-color);
+    border-bottom: 2px solid var(--wine-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.new-schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.new-schedule-item {
+    background-color: rgba(107, 15, 44, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.new-schedule-item h3 {
+    color: var(--wine-color);
+    margin-bottom: 10px;
+}
+
+.new-features ul {
+    list-style-type: none;
+}
+
+.new-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.new-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--wine-color);
+}
+
+.new-plans-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.new-plan {
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.new-plan:hover {
+    transform: scale(1.05);
+}
+
+.new-normal-plan {
+    background-color: rgba(107, 15, 44, 0.1);
+    border: 2px solid var(--wine-color);
+}
+
+.new-commitment-plan {
+    background-color: rgba(107, 15, 44, 0.2);
+    border: 2px solid var(--wine-color);
+}
+
+.new-plan .price {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--wine-color);
+    margin-bottom: 15px;
+}
+
+.new-plan h3 {
+    color: var(--wine-color);
+    margin-bottom: 10px;
+}
+.inscription-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.inscription-btn {
+    background-color: var(--wine-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.inscription-btn:hover {
+    background-color: #8b1642;
+    transform: scale(1.05);
+}
+
+@media (max-width: 780px) {
+    /* Centrar todo el contenido verticalmente */
+    .new-section-body {
+        padding: 20px;
+        flex-direction: column; /* Cambiar el diseño a columna */
+        justify-content: flex-start;
+    }
+
+    /* Contenedor de curso */
+    .new-course-container {
+        margin-top: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+        max-width: 100%; /* Hacer el contenedor más flexible */
+        box-shadow: none; /* Opcional: quitar la sombra en pantallas pequeñas */
+    }
+
+    /* Encabezado */
+    .new-header {
+        padding: 15px;
+    }
+
+    .new-header h1 {
+        font-size: 1.5em; /* Ajustar el tamaño del texto */
+    }
+
+    .new-main-content {
+        display: block; /* Cambiar a diseño de bloque */
+        gap: 0;
+    }
+
+    .new-left-column, .new-right-column {
+        flex: unset;
+        width: 100%; /* Ocupa todo el ancho */
+        margin-bottom: 20px;
+    }
+
+    /* Sección de características */
+    .new-schedule-grid {
+        grid-template-columns: 1fr; /* Mostrar todo en una columna */
+    }
+
+    /* Botones de inscripción */
+    .inscription-btn {
+        padding: 10px 20px;
+        font-size: 1.2em; /* Aumentar un poco el tamaño de la fuente */
+    }
+
+    /* Planes */
+    .new-plans-container {
+        display: block; /* Cambiar a columna */
+        gap: 15px;
+    }
+
+    .new-plan {
+        padding: 15px;
+        font-size: 0.9em; /* Ajustar el tamaño del texto */
+    }
+} 
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .work-with-me {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .work-image {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .work-image img {
+        width: 100%;
+    }
+
+    .work-text {
+        width: 100%;
+        padding: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    height: 60vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #a21f47; /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: -10px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    height: 70%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 20px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        color: rgb(138, 7, 7); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+        .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 15px;
+        text-align: justify;
+    }
+}
+@media (min-width: 1440px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 30px;
+    height: 70vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #a21f47; /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    height: 80%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: rgb(138, 7, 7); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 20px;
+        text-align: justify;
+    }
+}
+
+@media (min-width: 2560px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 30px;
+    height: 60vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #a21f47; /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 40%;
+    height: 50%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        color: rgb(138, 7, 7); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 30px;
+        text-align: justify;
+    }
+}
+
+
+  footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Cambia la dirección a columna en móviles */
+        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        justify-content: center; /* Centra los iconos de contacto en móviles */
+    }
+
+    .contact-item span {
+        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+    </div>
+    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+    </div>
+</header>
+</nav>
+<nav class="main-nav">
+    <div class="logo">
+        <img src="Ingresaentrada.jpeg" alt="Logo de la empresa">
+    </div>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Cursos ▼</a>
+            <div class="dropdown-content">
+                <a href="COMIPEMS.html">MEDIA SUPERIOR</a>
+                <a href="IPN.html">IPN</a>
+                <a href="UNAM.html">UNAM</a>
+                <a href="UAM.html">UAM</a>
+                <a href="UAEMEX.html">UAEMEX</a>
+                <a href="UADY.html">UADY</a>
+                <a href="UV.html">UV</a>
+                <a href="TECNM.html">TECNM</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Iniciar Sesión ▼</a>
+            <div class="dropdown-content">
+                <a href="login.html">Alumnos</a>
+            </div>
+        </li>
+        <li><a href="NOSOTROS.html">Nosotros</a></li>
+        <li><a href="index.html#contact">Contáctanos</a></li>
+    </ul>
+</nav>
+<!-- IMAGEN Y TEXTO-->
+<section class="work-with-me">
+    <div class="work-image">
+        <img src="POLIfondo.png" alt="Woman looking in the mirror">
+    </div>
+    <div class="work-text">
+        <h1>¿Quiéres ser un politécnico?</h1>
+        <p>¡Nuestro curso es ideal para que ingreses a la universidad! 
+            El Instituto Politécnico Nacional, reconocido por su excelencia en ciencia, tecnología e innovación, te ofrece la mejor preparación.
+            ¡No pierdas esta oportunidad, comienza tu camino hacia el éxito con nosotros!</p>
+    </div>
+</section>
+<div class="new-course-container">
+    <header class="new-header">
+        <h1>Curso Preparación</h1>
+        <div class="new-header-divider"></div>
+    </header>
+
+    <main class="new-main">
+        <div class="new-main-content">
+            <div class="new-left-column">
+                <section class="new-section">
+                    <h2>Horarios</h2>
+                    <div class="new-schedule-grid">
+                        <div class="new-schedule-item">
+                            <h3>Básico</h3>
+                            <p>Lunes a Jueves de 9:00 a 11:00 am o 16:00 a 18:00hrs</p>
+                            <p>Viernes: Examen en casa</p>
+                            <p>Sabatino: 9:00 a 13:00hrs</p>
+                        </div>
+                        <div class="new-schedule-item">
+                            <h3>Alto Rendimiento</h3>
+                            <p>Lunes a Jueves de 9:00 a 11:30 o 16:00 a 18:30 hrs</p>
+                            <p>Viernes: Examen en casa</p>
+                            <p>Sabatino: 9:00 a 14:00 hrs</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section new-features">
+                    <h2>Características</h2>
+                    <ul>
+                        <li>Resolución de la NUEVA GUÍA OFICIAL al 100%</li>
+                        <li>Información periódica al padre sobre avance del alumno</li>
+                        <li>Exámenes orales</li>
+                        <li>Exámenes simulacro</li>
+                        <li>100% basado en NUEVA GUIA 2025</li>
+                    </ul>
+                    <div class="inscription-btn-container">
+                        <button class="inscription-btn" onclick="window.location.href='index.html#contact'">Inscribirse</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="new-right-column">
+                <section class="new-section">
+                    <h2>Planes de Pago</h2>
+                    <div class="new-plans-container">
+                        <div class="new-plan new-normal-plan">
+                            <h3>Plan Básico</h3>
+                            <div class="price">Inscripción: $2,000</div>
+                            <div class="price">6 mensualidades: $1,000</div>
+                        </div>
+                        <div class="new-plan new-commitment-plan">
+                            <h3>Plan Alto Rendimiento</h3>
+                            <div class="price">Inscripción: $2,000</div>
+                            <div class="price">6 mensualidades: $1,250</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</div>
+<footer>
+    <div class="footer-container">
+        <p>Escríbenos por medio del chat de la página o:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="wts.png" alt="WhatsApp" width="30">
+                <span>5524498795</span>
+            </div>
+            <div class="contact-item">
+                <img src="fb.png" alt="Facebook" width="30">
+                <span>Ingresa.con</span>
+            </div>
+            <div class="contact-item">
+                <img src="ig.png" alt="Instagram" width="30">
+                <span>Ingresa.con</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMIPEMS</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-image: url('Background.png');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: repeat;
+}
+header {
+    background-color: #000000;
+    color: white;
+    padding: 0 2%; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea todos los elementos verticalmente al centro */
+    height: 60px; /* Altura ajustada para mejor visibilidad */
+    position: relative;
+    z-index: 1000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.contact {
+    color: white;
+    font-size: 18px;
+    display: flex; /* Asegura que el texto pueda alinearse correctamente */
+    align-items: center; /* Centra verticalmente el texto */
+}
+/* IMAGENES DE REDES DEL HEADER */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
+    align-items: center; /* Centra verticalmente los iconos */
+}
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos a ambos lados */
+    align-items: center; /* Centra verticalmente todos los elementos */
+    background-color: #ffffff;
+    padding: 5px 2%; /* Ajusta el padding para un mejor espaciado */
+    color: rgb(0, 0, 0);
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+}
+.logo img {
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    width: 10vw; /* Usa un valor en vw para un tamaño responsivo */
+    max-height: 60px; /* Limita la altura máxima del logo */
+}
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flex para alinear los elementos de la lista en línea */
+    flex-wrap: wrap; /* Permite que los elementos de la lista se envuelvan */
+}
+.main-nav li {
+    margin-left: 10px; /* Espacio entre los elementos de la lista */
+}
+.main-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px; /* Espaciado interno de los enlaces */
+}
+.main-nav a:hover {
+    background: #707272; /* Color de fondo al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Centra los elementos de la lista */
+    }
+
+    .main-nav li {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
+    }
+}
+.dropdown {
+    position: relative; /* Necesario para posicionar el contenido del dropdown */
+    display: inline-block; /* Hace que el dropdown se muestre en línea */
+}
+
+.dropdown-content {
+    display: none; /* Oculta el contenido del dropdown por defecto */
+    position: absolute; /* Posiciona el contenido de forma absoluta */
+    background-color: #ffffff; /* Color de fondo del dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    z-index: 1001; /* Asegura que el dropdown esté por encima de otros elementos */
+    border-radius: 5px; /* Bordes redondeados para el dropdown */
+    min-width: 120px; /* Reduce el ancho mínimo del dropdown */
+}
+
+.dropdown-content a {
+    padding: 4px 8px; /* Reduce el espaciado interno de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    text-align: center; /* Centra el texto en el enlace */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco para el enlace */
+    font-size: 17px; /* Tamaño de fuente más pequeño */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.dropdown-content a:hover {
+    background-color: #c7bebe; /* Color de fondo al pasar el mouse sobre el enlace */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el contenido del dropdown al pasar el mouse */
+}
+
+.dropdown:hover > a {
+    background-color: #707272; /* Color de fondo para el enlace al pasar el mouse */
+    color: white; /* Cambia el color del texto al blanco */
+}
+.work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 30px;
+    height: 70vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #cbf4f4; /* Cambia el color de fondo */
+}
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+.work-text h1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+        color: rgb(20, 145, 161); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+
+    .work-text h1 span {
+        font-style: italic;
+    }
+
+    .work-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 1rem;
+        text-align: justify;
+    }
+    /* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .work-with-me {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .work-image {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .work-image img {
+        width: 100%;
+    }
+
+    .work-text {
+        width: 100%;
+        padding: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    height: 60vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #cbf4f4;  /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: -10px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    height: 70%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 20px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        color: rgb(20, 145, 161); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+        .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        font-size: 15px;
+        text-align: justify;
+    }
+}
+@media (min-width: 1440px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 30px;
+    height: 70vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #cbf4f4;  /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 30%;
+    height: 80%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 25px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        color: rgb(20, 145, 161); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        font-size: 20px;
+        text-align: justify;
+    }
+}
+
+@media (min-width: 2560px) {
+    .work-with-me {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 30px;
+    height: 60vh; /* Igual que el slider */
+    z-index: 2; /* Por encima del slider */
+    color: #333;
+    background-color: #cbf4f4;  /* Cambia el color de fondo */
+}
+
+.work-image {
+    width: 90%;
+    position: relative;
+    margin-left: 20px; /* Agrega margen entre la imagen y el texto */
+}
+
+.work-image img {
+    width: 95%;
+    border-radius: 10px;
+}
+/* TEXTO A LADO DE LA IMAGEN */
+.work-text {
+    width: 40%;
+    height: 50%;
+    padding: 30px; /* Añade espacio alrededor del texto */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
+    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
+}
+
+/* TITULO A LADO DE LA IMAGEN */
+    .work-text h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        color: rgb(20, 145, 161); /* Texto en blanco */
+        text-align: center; /* Centra el título horizontalmente */
+}
+    .work-text p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+        font-size: 30px;
+        text-align: justify;
+    }
+}
+
+/*ONLINE Y PRESENCIAL*/
+.container {
+display: flex;
+gap: 100px;
+justify-content: center;
+align-items: center;
+margin-top: 50px; /* Agregar un margen superior para más separación */
+}
+.box {
+    background-color: #c9e165;
+    color: rgb(0, 0, 0);
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align:justify;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.box h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif
+}
+.box ul {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0px 70px;
+}
+
+button {
+    padding: 10px 30px;
+    background-color: #39d3b9;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    margin-top: -70px; /* Ajusta esta propiedad para reducir la distancia */
+
+  }
+  
+  button:hover {
+    background-color: #41a393;
+  }
+
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px; /* Reduce el espacio entre cajas */
+        margin-top: 20px;
+    }
+
+    .box {
+        width: 80%; /* Ajusta el ancho a un porcentaje */
+        height: auto; /* Deja que la altura se ajuste automáticamente */
+        padding: 20px; /* Agrega un poco de padding interno */
+    }
+
+    .box h2 {
+        font-size: 24px; /* Reduce el tamaño de fuente */
+    }
+
+    .box ul {
+        font-size: 16px;
+        padding: 0 20px; /* Reduce el padding lateral */
+    }
+
+    button {
+        padding: 8px 20px; /* Reduce el padding del botón */
+        margin-top: 10px; /* Ajusta el margen superior */
+    }
+}
+
+  footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Cambia la dirección a columna en móviles */
+        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        justify-content: center; /* Centra los iconos de contacto en móviles */
+    }
+
+    .contact-item span {
+        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+    </div>
+    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+    </div>
+</header>
+</nav>
+<nav class="main-nav">
+    <div class="logo">
+        <img src="Ingresaentrada.jpeg" alt="Logo de la empresa">
+    </div>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Cursos ▼</a>
+            <div class="dropdown-content">
+                <a href="COMIPEMS.html">MEDIA SUPERIOR</a>
+                <a href="IPN.html">IPN</a>
+                <a href="UNAM.html">UNAM</a>
+                <a href="UAM.html">UAM</a>
+                <a href="UAEMEX.html">UAEMEX</a>
+                <a href="UADY.html">UADY</a>
+                <a href="UV.html">UV</a>
+                <a href="TECNM.html">TECNM</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Iniciar Sesión ▼</a>
+            <div class="dropdown-content">
+                <a href="login.html">Alumnos</a>
+            </div>
+        </li>
+        <li><a href="NOSOTROS.html">Nosotros</a></li>
+        <li><a href="index.html#contact">Contáctanos</a></li>
+    </ul>
+</nav>
+<!-- IMAGEN Y TEXTO-->
+<section class="work-with-me">
+    <div class="work-image">
+        <img src="COMIPEMSFON.jpeg" alt="Woman looking in the mirror">
+    </div>
+    <div class="work-text">
+        <h1>¿Realizarás el COMIPEMS?</h1>
+        <p>Proceso de selección para las instituciones públicas de educación media superior, nuestro curso te ofrece la oportunidad de acceder a una formación académica de calidad. No pierdas esta oportunidad y comienza tu camino hacia el éxito en tu examen de admisión con nosotros.
+
+            ¡Prepárate con nosotros y asegura tu lugar en la Media Superior!</p>
+    </div>
+</section>
+<div class="container">
+    <div class="box">
+        <h2>Presencial</h2>
+        <ul style="line-height: 2.0;">
+            <li>Profesores especializados por materia.</li>
+            <li>Plataforma Virtual con contenido exclusivo.</li>
+            <li>Exámenes diagnóstico por área.</li>
+            <li>Temarios resueltos y actualizados.</li>
+            <li>Guía de estudio.</li>
+            <li>Gráfica de avance por alumno.</li>
+            <li>Tenología de primera durante el curso.</li>
+        </ul>
+        <div class="container">
+            <button type="button">
+                <a href="Contactos.html" style="text-decoration: none; color: inherit;">Más Información</a>
+            </button>
+          </div>
+    </div>
+    <div class="box">
+        <h2>Online</h2>
+        <ul style="line-height: 2.0;">
+            <li>Profesores especializados por materia.</li>
+            <li>Plataforma Virtual con contenido exclusivo.</li>
+            <li>Exámenes diagnóstico por área.</li>
+            <li>Temarios resueltos y actualizados.</li>
+            <li>Guía de estudio.</li>
+            <li>Gráfica de avance por alumno.</li>
+            <li>Videos de temas de clase, disponibles en cualquier momento</li>
+        </ul>
+        <div class="container">
+            <button type="button">
+                <a href="Contactos.html" style="text-decoration: none; color: inherit;">Más Información</a>
+              </button>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <p>Escríbenos por medio del chat de la página o:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img src="wts.png" alt="WhatsApp" width="30">
+                <span>5524498795</span>
+            </div>
+            <div class="contact-item">
+                <img src="fb.png" alt="Facebook" width="30">
+                <span>Ingresa.con</span>
+            </div>
+            <div class="contact-item">
+                <img src="ig.png" alt="Instagram" width="30">
+                <span>Ingresa.con</span>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduPlataforma - Tu Portal Educativo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>EduPlataforma</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" id="inicio-link" class="active">Inicio</a>
+        <a href="#" id="cursos-link">Mis Cursos</a>
+        <a href="#" id="calendario-link">Exámenes</a>
+        <a href="#" id="mensajes-link">Desempeño</a>
+      </div>
+      <div class="user-menu">
+        <span id="usuario-nombre">Juan Pérez</span>
+        <img src="https://via.placeholder.com/40" alt="Foto de perfil" class="profile-pic">
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div id="vista-inicio" class="vista active">
+      <h1>Bienvenido a tu Portal Educativo</h1>
+      <div class="dashboard-grid">
+        <div class="card anuncios">
+          <h2>Anuncios Recientes</h2>
+          <div class="anuncio">
+            <h3>Nuevo material disponible</h3>
+            <p>Se ha subido nuevo material para el curso de Matemáticas</p>
+            <span class="fecha">Hace 2 horas</span>
+          </div>
+          <div class="anuncio">
+            <h3>Recordatorio: Entrega de proyecto</h3>
+            <p>No olvides entregar tu proyecto de Programación</p>
+            <span class="fecha">Hace 1 día</span>
+          </div>
+        </div>
+        
+        <div class="card actividades">
+          <h2>Próximas Actividades</h2>
+          <ul>
+            <li>
+              <span class="fecha">15 Oct</span>
+              <span class="actividad">Examen Parcial - Física</span>
+            </li>
+            <li>
+              <span class="fecha">18 Oct</span>
+              <span class="actividad">Entrega Proyecto - Programación</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="vista-cursos" class="vista">
+      <h1>Mis Cursos</h1>
+      <div class="cursos-grid">
+        <div class="curso-card">
+          <div class="curso-header" style="background-color: #4CAF50;">
+            <h3>
+              Matemáticas Avanzadas
+              <span class="notification-badge" title="Nuevo contenido disponible">!</span>
+            </h3>
+            <p>Prof. María González</p>
+          </div>
+          <div class="curso-content">
+            <p>Progreso: 75%</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+            <button class="btn-acceder">Acceder al curso</button>
+          </div>
+        </div>
+
+        <div class="curso-card">
+          <div class="curso-header" style="background-color: #2196F3;">
+            <h3>
+              Programación Web
+              <span class="notification-badge" title="Nuevo contenido disponible">!</span>
+            </h3>
+            <p>Prof. Carlos Ruiz</p>
+          </div>
+          <div class="curso-content">
+            <p>Progreso: 60%</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%"></div>
+            </div>
+            <button class="btn-acceder">Acceder al curso</button>
+          </div>
+        </div>
+
+        <div class="curso-card">
+          <div class="curso-header" style="background-color: #FF9800;">
+            <h3>Física Cuántica</h3>
+            <p>Prof. Ana Martínez</p>
+          </div>
+          <div class="curso-content">
+            <p>Progreso: 40%</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 40%"></div>
+            </div>
+            <button class="btn-acceder">Acceder al curso</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="vista-calendario" class="vista">
+      <h1>Exámenes Disponibles</h1>
+      <div class="examenes-grid">
+        <div class="examen-card">
+          <div class="examen-icon">
+            <i class="fas fa-square-poll-vertical"></i>
+          </div>
+          <h3>Examen Parcial - Matemáticas</h3>
+          <p>Fecha límite: 15 de Octubre, 2023</p>
+          <a href="https://forms.office.com/r/matematicas-parcial" class="btn-examen" target="_blank">
+            Realizar Examen
+          </a>
+        </div>
+
+        <div class="examen-card">
+          <div class="examen-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Examen Final - Programación</h3>
+          <p>Fecha límite: 18 de Octubre, 2023</p>
+          <a href="https://forms.office.com/r/programacion-final" class="btn-examen" target="_blank">
+            Realizar Examen
+          </a>
+        </div>
+
+        <div class="examen-card">
+          <div class="examen-icon">
+            <i class="fas fa-atom"></i>
+          </div>
+          <h3>Examen Parcial - Física</h3>
+          <p>Fecha límite: 25 de Octubre, 2023</p>
+          <a href="https://forms.office.com/r/fisica-parcial" class="btn-examen" target="_blank">
+            Realizar Examen
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="vista-mensajes" class="vista">
+      <h1>Mi Desempeño Académico</h1>
+      <div class="dashboard-grid">
+        <div class="card">
+          <h2>Promedio por Materia</h2>
+          <canvas id="materias-chart"></canvas>
+        </div>
+        
+        <div class="card">
+          <h2>Progreso General</h2>
+          <canvas id="progreso-chart"></canvas>
+        </div>
+
+        <div class="card metricas">
+          <h2>Métricas Generales</h2>
+          <div class="metrica-item">
+            <div class="metrica-valor">92%</div>
+            <div class="metrica-label">Asistencia</div>
+          </div>
+          <div class="metrica-item">
+            <div class="metrica-valor">85%</div>
+            <div class="metrica-label">Tareas Entregadas</div>
+          </div>
+          <div class="metrica-item">
+            <div class="metrica-valor">8.7</div>
+            <div class="metrica-label">Promedio General</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Tendencia de Calificaciones</h2>
+          <canvas id="tendencia-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

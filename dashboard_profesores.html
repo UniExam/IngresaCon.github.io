@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Educativa</title>
+</head>
+<body>
+    <h1>Bienvenido a la Plataforma Educativa</h1>
+    <p id="user-role"></p>
+    <!-- Contenido adicional para estudiantes y profesores -->
+    <script>
+        // Aquí puedes usar JavaScript para mostrar información adicional
+    </script>
+</body>
+</html>
+<script>
+    // Función para obtener los parámetros de la URL
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            role: params.get('role'),
+            username: params.get('username')
+        };
+    }
+
+    // Mostrar el rol y el nombre de usuario en la página
+    const userInfo = getQueryParams();
+    document.getElementById('user-role').innerText = `Bienvenido ${userInfo.username}, tu rol es: ${userInfo.role}`;
+</script>

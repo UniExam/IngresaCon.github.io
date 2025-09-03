@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de privacidad</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-image: url('Background.png');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: repeat;
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    padding: 0 2%; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea todos los elementos verticalmente al centro */
+    height: 60px; /* Altura ajustada para mejor visibilidad */
+    position: relative;
+    z-index: 1000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.contact {
+    color: white;
+    font-size: 18px;
+    display: flex; /* Asegura que el texto pueda alinearse correctamente */
+    align-items: center; /* Centra verticalmente el texto */
+}
+/* IMAGENES DE REDES DEL HEADER */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
+    align-items: center; /* Centra verticalmente los iconos */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos a ambos lados */
+    align-items: center; /* Centra verticalmente todos los elementos */
+    background-color: #ffffff;
+    padding: 5px 2%; /* Ajusta el padding para un mejor espaciado */
+    color: rgb(0, 0, 0);
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+}
+
+.logo img {
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    width: 10vw; /* Usa un valor en vw para un tamaño responsivo */
+    max-height: 60px; /* Limita la altura máxima del logo */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flex para alinear los elementos de la lista en línea */
+    flex-wrap: wrap; /* Permite que los elementos de la lista se envuelvan */
+}
+
+.main-nav li {
+    margin-left: 10px; /* Espacio entre los elementos de la lista */
+}
+
+.main-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px 10px; /* Espaciado interno de los enlaces */
+}
+
+.main-nav a:hover {
+    background: #707272; /* Color de fondo al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Centra los elementos de la lista */
+    }
+
+    .main-nav li {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
+    }
+}
+
+.dropdown {
+    position: relative; /* Necesario para posicionar el contenido del dropdown */
+    display: inline-block; /* Hace que el dropdown se muestre en línea */
+}
+
+.dropdown-content {
+    display: none; /* Oculta el contenido del dropdown por defecto */
+    position: absolute; /* Posiciona el contenido de forma absoluta */
+    background-color: #ffffff; /* Color de fondo del dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    z-index: 1001; /* Asegura que el dropdown esté por encima de otros elementos */
+    border-radius: 5px; /* Bordes redondeados para el dropdown */
+    min-width: 120px; /* Reduce el ancho mínimo del dropdown */
+}
+
+.dropdown-content a {
+    padding: 4px 8px; /* Reduce el espaciado interno de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    text-align: center; /* Centra el texto en el enlace */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco para el enlace */
+    font-size: 17px; /* Tamaño de fuente más pequeño */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.dropdown-content a:hover {
+    background-color: #c7bebe; /* Color de fondo al pasar el mouse sobre el enlace */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el contenido del dropdown al pasar el mouse */
+}
+
+.dropdown:hover > a {
+    background-color: #707272; /* Color de fondo para el enlace al pasar el mouse */
+    color: white; /* Cambia el color del texto al blanco */
+}
+/* AVISO */
+.outer-border {
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    border: 5px solid rgb(10, 10, 155); /* Borde azul alrededor del elemento */
+    margin: 20px auto; /* Centra el contenedor horizontalmente */
+    width: 80%; /* Ajusta el ancho del contenedor */
+    box-sizing: border-box; /* Incluye el borde en el tamaño total del elemento */
+}
+
+.imagine-section {
+    background-color: white; /* Fondo blanco para el contenido */
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    text-align: justify; /* Justifica el texto */
+}
+
+.imagine-section h2 {
+    margin: 0; /* Elimina márgenes por defecto para el título */
+    font-size: 36px; /* Tamaño del texto del título */
+    text-align: center; /* Centra el texto del título */
+
+}
+
+.imagine-section h3 {
+    margin-top: 10px; /* Margen superior para el subtítulo */
+    margin-bottom: 30px; /* Margen inferior para el subtítulo */
+    font-size: 20px; /* Tamaño del texto del subtítulo */
+    text-align: center; /* Centra el texto del subtítulo */
+    color: #888585;
+}
+
+.imagine-section h4 {
+    margin-top: 20px; /* Margen superior para las secciones */
+    font-size: 24px; /* Tamaño del texto de las secciones */
+}
+
+.imagine-section p, .imagine-section ul {
+    margin-bottom: 15px; /* Espacio inferior entre párrafos y listas */
+}
+
+a {
+    color: blue; /* Color de los enlaces */
+    text-decoration: underline; /* Subrayado de los enlaces */
+}
+
+a:hover {
+    color: darkblue; /* Color de los enlaces al pasar el ratón */
+}
+footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Cambia la dirección a columna en móviles */
+        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        justify-content: center; /* Centra los iconos de contacto en móviles */
+    }
+
+    .contact-item span {
+        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+    </div>
+    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+    </div>
+</header>
+</nav>
+<nav class="main-nav">
+    <div class="logo">
+        <img src="Ingresaentrada.jpeg" alt="Logo de la empresa">
+    </div>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+            <a href="#">Cursos ▼</a>
+            <div class="dropdown-content">
+                <a href="COMIPEMS.html">MEDIA SUPERIOR</a>
+                <a href="IPN.html">IPN</a>
+                <a href="UNAM.html">UNAM</a>
+                <a href="UAM.html">UAM</a>
+                <a href="UAEMEX.html">UAEMEX</a>
+                <a href="UADY.html">UADY</a>
+                <a href="UV.html">UV</a>
+                <a href="TECNM.html">TECNM</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Iniciar Sesión ▼</a>
+            <div class="dropdown-content">
+                <a href="login.html">Alumnos</a>
+            </div>
+        </li>
+        <li><a href="NOSOTROS.html">Nosotros</a></li>
+        <li><a href="index.html#contact">Contáctanos</a></li>
+    </ul>
+</nav>
+<body>
+    <div class="outer-border">
+        <div class="imagine-section">
+            <h2>Ingresa Con</h2>
+            <h3>Aviso de Privacidad Integral</h3>
+            <p>AARON BAEZ ENRIQUEZ mejor conocido como INGRESA.CON, con domicilio en CALZADA DE LAS BOMBAS 320B, 2DO PISO, JARDINES DE COYOACAN, CP 04899 ALCALDÍA COYOACÁN, CIUDAD DE MÉXICO, y portal de internet <a href="http://www.ingresacon.com.mx" target="_blank">www.ingresacon.com.mx</a>, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:</p>
+
+            <h4>¿Para qué fines utilizaremos sus datos personales?</h4>
+            <p>Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:</p>
+            <ul>
+                <li>Respuesta a mensajes del formulario de contacto</li>
+                <li>Prestación de cualquier servicio solicitado</li>
+                <li>Enviar exámenes, actividades escolares, notificaciones escolares, recordatorio de pagos, avisos escolares.</li>
+            </ul>
+
+            <h4>¿Qué datos personales utilizaremos para estos fines?</h4>
+            <p>Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, utilizaremos los siguientes datos personales:</p>
+            <ul>
+                <li>Datos de identificación y contacto</li>
+            </ul>
+
+            <h4>¿Cómo puede acceder, rectificar o cancelar sus datos personales, u oponerse a su uso o ejercer la revocación de consentimiento?</h4>
+            <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como derechos ARCO.</p>
+            <p>Para el ejercicio de cualquiera de los derechos ARCO, debe enviar una petición vía correo electrónico a <a href="mailto:infresacon@hotmail.com">infresacon@hotmail.com</a> y deberá contener:</p>
+            <ul>
+                <li>Nombre completo del titular.</li>
+                <li>Domicilio.</li>
+                <li>Teléfono.</li>
+                <li>Correo electrónico usado en este sitio web.</li>
+                <li>Copia de una identificación oficial adjunta.</li>
+                <li>Asunto «Derechos ARCO»</li>
+                <li>Descripción el objeto del escrito, los cuales pueden ser de manera enunciativa más no limitativa los siguientes: Revocación del consentimiento para tratar sus datos personales; y/o Notificación del uso indebido del tratamiento de sus datos personales; y/o Ejercitar sus Derechos ARCO, con una descripción clara y precisa de los datos a Acceder, Rectificar, Cancelar o bien, Oponerse. En caso de Rectificación de datos personales, deberá indicar la modificación exacta y anexar la documentación soporte; es importante en caso de revocación del consentimiento, que tenga en cuenta que no en todos los casos podremos atender su solicitud o concluir el uso de forma inmediata, ya que es posible que por alguna obligación legal requiramos seguir tratando sus datos personales. Asimismo, usted deberá considerar que para ciertos fines, la revocación de su consentimiento implicará que no le podamos seguir prestando el servicio que nos solicitó, o la conclusión de su relación con nosotros.</li>
+            </ul>
+
+            <h4>¿En cuántos días le daremos respuesta a su solicitud?</h4>
+            <p>5 días</p>
+
+            <h4>¿Por qué medio le comunicaremos la respuesta a su solicitud?</h4>
+            <p>Al mismo correo electrónico de donde se envió la petición.</p>
+
+            <h4>El uso de tecnologías de rastreo en nuestro portal de internet</h4>
+            <p>Le informamos que en nuestra página de internet utilizamos cookies, web beacons u otras tecnologías, a través de las cuales es posible monitorear su comportamiento como usuario de internet, así como brindarle un mejor servicio y experiencia al navegar en nuestra página. Los datos personales que obtenemos de estas tecnologías de rastreo son los siguientes:</p>
+            <ul>
+                <li>Identificadores, nombre de usuario y contraseñas de sesión</li>
+                <li>Búsquedas realizadas por un usuario</li>
+                <li>Publicidad revisada por un usuario</li>
+                <li>ninguno</li>
+            </ul>
+            <p>Estas cookies, web beacons y otras tecnologías pueden ser deshabilitadas. Para conocer cómo hacerlo, consulte el menú de ayuda de su navegador. Tenga en cuenta que, en caso de desactivar las cookies, es posible que no pueda acceder a ciertas funciones personalizadas en nuestros sitios web.</p>
+
+            <h4>¿Cómo puede conocer los cambios en este aviso de privacidad?</h4>
+            <p>El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales; de nuestras propias necesidades por los productos o servicios que ofrecemos; de nuestras prácticas de privacidad; de cambios en nuestro modelo de negocio, o por otras causas. Nos comprometemos a mantener actualizado este aviso de privacidad sobre los cambios que pueda sufrir y siempre podrá consultar las actualizaciones que existan en el sitio web <a href="http://www.ingresacon.com.mx" target="_blank">www.ingresacon.com.mx</a>.</p>
+
+            <p>Última actualización de este aviso de privacidad: 06/09/2023</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>Escríbenos por medio del chat de la página o:</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="wts.png" alt="WhatsApp" width="30">
+                    <span>5524498795</span>
+                </div>
+                <div class="contact-item">
+                    <img src="fb.png" alt="Facebook" width="30">
+                    <span>Ingresa.con</span>
+                </div>
+                <div class="contact-item">
+                    <img src="ig.png" alt="Instagram" width="30">
+                    <span>Ingresa.con</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
