@@ -113,9 +113,8 @@
 
 <!-- INTRODUCCIÓN -->
 <div class="intro-container">
-    <h2>Asegura tu lugar en la institución de tus sueños</h2>
     <h2>¿Qué ofrecemos?</h2>
-    <p class="description">Da el primer paso a tu futuro profesional, nuestro curso INGRESA está especialmente diseñado para ti...</p>
+    <p class="description">Asegura tu lugar en la institución de tus sueños</p>
 </div>
 
 <!-- TARJETAS - SLIDER -->
@@ -269,83 +268,124 @@ document.querySelectorAll('.ver-menos').forEach(button => {
 </script>
 
 <!-- CONTACTO -->
-<div id="app" class="min-h-full flex items-center justify-center p-8">
-   <div class="w-full max-w-7xl">
+<div id="app">
+  <div class="contenedor">
     <div class="gold-border">
-     <div class="rounded-2xl shadow-2xl overflow-hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-5 min-h-[600px]"><!-- Panel Derecho - Información -->
-       <div class="lg:col-span-2 p-12 flex flex-col justify-center order-1 lg:order-2">
-        <div class="mb-8">
-         <div class="w-16 h-16 rounded-full mb-6 flex items-center justify-center text-3xl shadow-lg">
-          ✨
-         </div>
-         <h1 id="titulo" class="text-5xl font-bold mb-4 leading-tight">Solicita Información</h1>
-         <p id="subtitulo" class="text-lg leading-relaxed">Completa tus datos y nos pondremos en contacto contigo</p>
+      <div class="card">
+        <div class="layout">
+          
+          <!-- PANEL INFORMACIÓN -->
+          <div class="panel-info">
+            <div class="info-header">
+              <div class="icon-circle">☎️</div>
+
+              <h4 id="titulo">Solicita Información</h4>
+              <p id="subtitulo">Completa tus datos y nos pondremos en contacto contigo</p>
+            </div>
+
+            <div class="info-items">
+              <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div>
+                  <h3>Email</h3>
+                  <p>ingresacon@hotmail.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">📱</div>
+                <div>
+                  <h3>Teléfono</h3>
+                  <p>55 2449 8795</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">⏰</div>
+                <div>
+                  <h3>Horario</h3>
+                  <p>Lun - Sáb: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL FORMULARIO -->
+          <div class="panel-form">
+            <form id="contactForm">
+              <div class="form-grid">
+
+                <div class="campo">
+                  <label for="nombre">Nombre Completo *</label>
+                  <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                </div>
+
+                <div class="campo">
+                  <label for="correo">Correo Electrónico *</label>
+                  <input type="email" id="correo" name="correo" required placeholder="tucorreo@ejemplo.com">
+                </div>
+
+                <div class="campo">
+                  <label for="telefono">Teléfono *</label>
+                  <input type="tel" id="telefono" name="telefono" required placeholder="+52 123 456 7890">
+                </div>
+
+                <div class="campo">
+                  <label for="curso">Curso de Interés *</label>
+                  <select id="curso" name="curso" required>
+                    <option value="">Selecciona un curso</option>
+                    <option value="UNAM"> UNAM</option>
+                    <option value="IPN">IPN</option>
+                    <option value="UAM">UAM</option>
+                    <option value="UAEMEX">UAEMEX</option>
+                    <option value="UADY">UADY</option>
+                    <option value="MEDIA SUPERIOR">MEDIA SUPERIOR</option>
+                    <option value="UV">UV</option>
+                    <option value="TECNM">TECNM</option>
+                    <option value="UASLP">UASLP</option>
+                  </select>
+                </div>
+
+                <div class="campo campo-full">
+                  <label>Modalidad de Interés *</label>
+                  <div class="radios">
+                    <label class="radio-op">
+                      <input type="radio" name="modalidad" value="Presencial" required>
+                      <div>Presencial</div>
+                    </label>
+
+                    <label class="radio-op">
+                      <input type="radio" name="modalidad" value="En línea" required>
+                      <div>En línea</div>
+                    </label>
+
+                    <label class="radio-op">
+                      <input type="radio" name="modalidad" value="Híbrido" required>
+                      <div>Híbrida</div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="campo campo-full">
+                  <label for="mensaje">Mensaje *</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos tu carrera de interés"></textarea>
+                </div>
+
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn-enviar">
+                <span id="btnText">Enviar Solicitud</span>
+                <span id="btnSpinner" class="spinner hidden"></span>
+              </button>
+            </form>
+          </div>
+
         </div>
-        <div class="space-y-6">
-         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
-           📧
-          </div>
-          <div>
-           <h3 class="font-bold text-lg mb-1">Email</h3>
-           <p class="text-sm opacity-90">contacto@ejemplo.com</p>
-          </div>
-         </div>
-         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
-           📱
-          </div>
-          <div>
-           <h3 class="font-bold text-lg mb-1">Tel��fono</h3>
-           <p class="text-sm opacity-90">+52 123 456 7890</p>
-          </div>
-         </div>
-         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
-           ⏰
-          </div>
-          <div>
-           <h3 class="font-bold text-lg mb-1">Horario</h3>
-           <p class="text-sm opacity-90">Lun - Vie: 9:00 AM - 6:00 PM</p>
-          </div>
-         </div>
-        </div>
-       </div><!-- Panel Izquierdo - Formulario -->
-       <div class="lg:col-span-3 p-12 order-2 lg:order-1">
-        <form id="contactForm" class="h-full flex flex-col justify-center">
-         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div><label for="nombre" class="block text-sm font-bold mb-2">Nombre Completo *</label> <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="Tu nombre completo">
-          </div>
-          <div><label for="correo" class="block text-sm font-bold mb-2">Correo Electrónico *</label> <input type="email" id="correo" name="correo" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="tucorreo@ejemplo.com">
-          </div>
-          <div><label for="telefono" class="block text-sm font-bold mb-2">Teléfono *</label> <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="+52 123 456 7890">
-          </div>
-          <div><label for="curso" class="block text-sm font-bold mb-2">Curso de Interés *</label> <select id="curso" name="curso" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all"> <option value="">Selecciona un curso</option> <option value="Diseño Gráfico">Diseño Gráfico</option> <option value="Desarrollo Web">Desarrollo Web</option> <option value="Marketing Digital">Marketing Digital</option> <option value="Fotografía">Fotografía</option> <option value="Programación">Programación</option> <option value="Otro">Otro</option> </select>
-          </div>
-          <div class="md:col-span-2"><label for="modalidad" class="block text-sm font-bold mb-2">Modalidad de Interés *</label>
-           <div class="grid grid-cols-3 gap-4"><label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="Presencial" required class="peer sr-only">
-             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
-              Presencial
-             </div></label> <label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="En línea" required class="peer sr-only">
-             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
-              En línea
-             </div></label> <label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="Híbrida" required class="peer sr-only">
-             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
-              Híbrida
-             </div></label>
-           </div>
-          </div>
-          <div class="md:col-span-2"><label for="mensaje" class="block text-sm font-bold mb-2">Mensaje *</label> <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all resize-none" placeholder="Cuéntanos más sobre tu interés..."></textarea>
-          </div>
-         </div><button type="submit" id="submitBtn" class="w-full py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3 shine-effect"> <span id="btnText">Enviar Solicitud</span> <span id="btnSpinner" class="spinner hidden"></span> </button>
-        </form>
-       </div>
       </div>
-     </div>
     </div>
-   </div>
   </div>
+</div>
+
 
 <!-- FOOTER -->
 <footer>
@@ -354,18 +394,22 @@ document.querySelectorAll('.ver-menos').forEach(button => {
 
         <div class="contact-info">
             <div class="contact-item">
-                <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+                <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30">
                 <span>5524498795</span>
+                </a>
             </div>
 
             <div class="contact-item">
-                <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+                <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30">
                 <span>Ingresa.con</span>
+                </a>
             </div>
 
             <div class="contact-item">
-                <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
+                <a href="https://www.instagram.com/ingresacon/" target="_blank">
+                <img src="ig.png" alt="Instagram" width="30">
                 <span>Ingresa.con</span>
+                </a>
             </div>
         </div>
     </div>

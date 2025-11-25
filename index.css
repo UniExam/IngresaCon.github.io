@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-image: url('BuenFinPP.png');
     background-size: cover; /* Hace que la imagen cubra toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: repeat;
@@ -220,7 +220,8 @@ header {
   text-transform: uppercase;
   cursor: pointer;
   transform: skew(-21deg);
-  position: relative; /* importante para ::before */
+  position: relative;
+  color: #000;
 }
 
 .btn-1 span {
@@ -264,6 +265,7 @@ header {
     text-align: center;
     width: 100%;
     z-index: 0;
+    margin-top: 40px;
 }
 
 .cursos {
@@ -376,25 +378,24 @@ header {
 
 /*==============================FINAL CURSOS===========================================*/
 
-.intro-container {
+.intro-container { 
     max-width: 1200px;
     margin: 0 auto;
-    padding: -50px;
+    padding: 20px;
     text-align: center;
 }
 
 h2 {
-    font-size: 36px;
-    color: #8a2626;
+    font-size: 60px;
+    color: #693030;
 }
 
 p.description {
-    font-size: 20px;
-    color: #8a2626;
+    font-size: 30px; /* <-- Aumenté de 20 a 26 */
+    color: #2a2272;
     margin: 0 auto 20px;
     max-width: 1000px;
 }
-
 /* Texto de tarjetas */
 .texto-card {
     background-color: #ffffff00;
@@ -492,7 +493,7 @@ p.description {
 
 .offering h3 {
     font-size: 18px;
-    color: #333;
+    color: #302b83;
     padding: 15px 10px 5px;
 }
 
@@ -557,99 +558,206 @@ p.description {
 
 /*=======================================FINAL TARJETAS=========================*/
 
-.toast {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 16px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      animation: slideIn 0.3s ease-out;
-      z-index: 1000;
-    }
-    
-    .toast.success {
-      background: linear-gradient(135deg, #d4af37 0%, #f4e5b1 100%);
-      color: #1a1a1a;
-    }
-    
-    .toast.error {
-      background-color: #dc2626;
-      color: white;
-    }
-    
-    @keyframes slideIn {
-      from {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-    }
-    
-    .spinner {
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top: 3px solid white;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: spin 0.8s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .gold-border {
-      position: relative;
-    }
-    
-    .gold-border::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, #d4af37, #f4e5b1, #d4af37);
-      border-radius: 16px;
-      z-index: -1;
-    }
-    
-    .shine-effect {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .shine-effect::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    
-    .shine-effect:hover::after {
-      left: 100%;
-    }
+#app {
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  height: 607px;
+  background-color: #85851b96;
+  border-radius: 10px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(154, 165, 60, 0.606);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-height: 600px;
+}
+
+/* Panel Información */
+.panel-info {
+  grid-column: span 2;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.7rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#titulo {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+#subtitulo {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.info-items {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.61);
+  font-size: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Panel Formulario */
+.panel-form {
+  grid-column: span 3;
+  padding: 3rem;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+}
+
+/* Grid del formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.campo-full {
+  grid-column: span 2;
+}
+.campo-full textarea {
+  resize: none;       /* Quita la esquina de redimensionamiento */
+  width: 100%;        /* Ancho completo del contenedor */
+  height: 100px;      /* Tamaño fijo */
+  padding: 10px;      
+  border-radius: 8px; /* Más cuadrados o redondeados según quieras */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+/* Inputs */
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  height: 40px; 
+  transition: 0.2s;
+}
+
+textarea {
+    width: 350px;       /* Tamaño fijo horizontal */
+    height: 150px;      /* Tamaño fijo vertical */
+    resize: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+  border-color: #000;
+}
+
+/* Radios */
+.radios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.radio-op input {
+  display: none;
+}
+
+.radio-op div {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.radio-op input:checked + div {
+  border-color: #85851b96;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+/* Botón enviar */
+.btn-enviar {
+  width: 100%;
+  padding: 16px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  transform: translateY(-3px);
+  background-color: #85851b96;
+  box-shadow: 0 8px 20px #85851b96;
+}
+
 
 footer {
         width: 100%;
@@ -680,6 +788,15 @@ footer {
         align-items: center;
         gap: 10px;
     }
+
+    .contact-item a {
+    display: flex;
+    align-items: center;  /* Alinea la imagen y el texto verticalmente */
+    gap: 8px;             /* Espacio entre imagen y texto */
+    text-decoration: none; /* Quita subrayado si quieres */
+    color: inherit;       /* Mantiene el color original */
+}
+
 
     .contact-item span {
         font-size: 1.2em;
