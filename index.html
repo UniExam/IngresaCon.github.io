@@ -4,1029 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INGRESA - Cursos de Preparación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    background-image: url('Background.png');
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: repeat;
-}
+    <link rel="stylesheet" href="index.css">
 
-header {
-    background-color: #000000;
-    color: white;
-    padding: 0 2%; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Alinea todos los elementos verticalmente al centro */
-    height: 60px; /* Altura ajustada para mejor visibilidad */
-    position: relative;
-    z-index: 1000;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.contact {
-    color: white;
-    font-size: 18px;
-    display: flex; /* Asegura que el texto pueda alinearse correctamente */
-    align-items: center; /* Centra verticalmente el texto */
-}
-/* IMAGENES DE REDES DEL HEADER */
-.social-icons {
-    display: flex;
-    gap: 20px; /* Espacio entre los iconos */
-    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
-    align-items: center; /* Centra verticalmente los iconos */
-}
-#testimonials {
-    padding: 60px 0;
-    background: #fff;
-    text-align: center;
-}
-
-#testimonials h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
-
-.testimonial-card {
-    background: #f4f4f9;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.client-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-    border: 2px solid #ddd;
-}
-
-.card-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.testimonial-screenshot {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
-}
-
-.testimonial-card blockquote {
-    margin: 0 0 20px 0;
-    font-style: italic;
-    color: #555;
-    flex-grow: 1; /* Pushes the cite to the bottom */
-    border-left: 3px solid #a0dff7;
-    padding-left: 15px;
-}
-
-.testimonial-card cite {
-    font-weight: 600;
-    color: #333;
-    align-self: flex-end;
-}
-
-.main-nav {
-    display: flex;
-    justify-content: space-between; /* Espacia los elementos a ambos lados */
-    align-items: center; /* Centra verticalmente todos los elementos */
-    background-color: #ffffff;
-    padding: 5px 2%; /* Ajusta el padding para un mejor espaciado */
-    color: rgb(0, 0, 0);
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-}
-
-.logo img {
-    height: auto; /* Deja que la altura se ajuste automáticamente */
-    width: 10vw; /* Usa un valor en vw para un tamaño responsivo */
-    max-height: 60px; /* Limita la altura máxima del logo */
-}
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Flex para alinear los elementos de la lista en línea */
-    flex-wrap: wrap; /* Permite que los elementos de la lista se envuelvan */
-}
-
-.main-nav li {
-    margin-left: 10px; /* Espacio entre los elementos de la lista */
-}
-
-.main-nav a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    padding: 5px 10px; /* Espaciado interno de los enlaces */
-}
-
-.main-nav a:hover {
-    background: #707272; /* Color de fondo al pasar el mouse */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .main-nav {
-        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-        align-items: flex-start; /* Alinea los elementos a la izquierda */
-    }
-
-    .main-nav ul {
-        justify-content: center; /* Centra los elementos de la lista */
-    }
-
-    .main-nav li {
-        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
-        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
-    }
-}
-
-.dropdown {
-    position: relative; /* Necesario para posicionar el contenido del dropdown */
-    display: inline-block; /* Hace que el dropdown se muestre en línea */
-}
-
-.dropdown-content {
-    display: none; /* Oculta el contenido del dropdown por defecto */
-    position: absolute; /* Posiciona el contenido de forma absoluta */
-    background-color: #ffffff; /* Color de fondo del dropdown */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    z-index: 1001; /* Asegura que el dropdown esté por encima de otros elementos */
-    border-radius: 5px; /* Bordes redondeados para el dropdown */
-    min-width: 120px; /* Reduce el ancho mínimo del dropdown */
-}
-
-.dropdown-content a {
-    padding: 4px 8px; /* Reduce el espaciado interno de los enlaces */
-    text-decoration: none; /* Sin subrayado en los enlaces */
-    display: block; /* Hace que el enlace ocupe toda la línea */
-    text-align: center; /* Centra el texto en el enlace */
-    border: 1px solid rgb(255, 255, 255); /* Borde blanco para el enlace */
-    font-size: 17px; /* Tamaño de fuente más pequeño */
-    transition: background-color 0.3s; /* Transición suave para el fondo */
-}
-
-.dropdown-content a:hover {
-    background-color: #c7bebe; /* Color de fondo al pasar el mouse sobre el enlace */
-}
-
-.dropdown:hover .dropdown-content {
-    display: block; /* Muestra el contenido del dropdown al pasar el mouse */
-}
-
-.dropdown:hover > a {
-    background-color: #707272; /* Color de fondo para el enlace al pasar el mouse */
-    color: white; /* Cambia el color del texto al blanco */
-}
-
-.slider {
-    width: 100%;
-    height: 50vh;
-    background-color: lightgray;
-    position: relative;
-    margin-top: 1vh;
-    margin-bottom: 40px; /* Aumenta el margen inferior para mayor separación del slider y los cursos */
-    z-index: 1;
-}
-
-.slider img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 18px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transform: translateY(-50%);
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.CURSOS {
-    margin: 120px 0 0; /* Aumenta el margen superior para evitar encimamientos con el slider */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Distribuye los elementos con más espacio */
-    gap: 40px; /* Espacio adicional entre cada imagen */
-    text-align: center;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    z-index: 0; /* Asegura que esté detrás del slider */
-}
-
-.cursos {
-    flex: 0 1 180px; /* Ancho mínimo de cada curso */
-    max-width: 180px; /* Asegura que el ancho no exceda 180px */
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.cursos img {
-    width: 120px;
-    height: 120px;
-    transition: transform 0.3s ease;
-}
-
-.cursos img:hover {
-    transform: scale(1.2);
-}
-
-.cursos h3 {
-    margin-top: 15px;
-    font-size: 1.1em;
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .slider {
-        height: auto;
-        margin-bottom: 40px;
-    }
-
-    .CURSOS {
-        margin: 80px 0; /* Ajusta el margen superior para pantallas más pequeñas */
-    }
-
-    .cursos {
-        flex: 0 1 120px;
-        margin-bottom: 15px;
-    }
-
-    .cursos img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .cursos img:hover {
-        transform: scale(1.1);
-    }
-
-    .cursos h3 {
-        margin-top: 10px;
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .CURSOS {
-        margin: 60px 0;
-        gap: 15px; /* Ajusta el espacio entre las imágenes en pantallas pequeñas */
-    }
-
-    .cursos {
-        flex: 0 1 100px;
-        margin-bottom: 10px;
-    }
-
-    .cursos img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .cursos h3 {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 2560px) {
-    .slider {
-        height: auto;
-        margin-bottom: 40px;
-    }
-
-    .CURSOS {
-        margin: 50px 0; /* Ajusta el margen superior para pantallas más pequeñas */
-    }
-
-    .cursos {
-        flex: 0 1 120px;
-        margin-bottom: 15px;
-    }
-
-    .cursos img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .cursos img:hover {
-        transform: scale(1.1);
-    }
-
-    .cursos h3 {
-        margin-top: 10px;
-        font-size: 1em;
-    }
-}
-/* Contenedor de introducción */
-.intro-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: -50px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 36px;
-    color: #050e41;
-}
-
-p.description {
-    font-size: 20px;
-    color: #666;
-    margin: 0 auto 20px;
-    max-width: 1000px;
-}
-
-/* Texto de tarjetas */
-.texto-card {
-    background-color: #ffffff00;
-    padding: 0px;
-    font-size: 1.2em;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    line-height: 1.6;
-}
-
-/* Estructura del slider */
-.card-slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 1300px;
-    margin: 40px auto 0;
-}
-
-.card-slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    overflow: hidden;
-}
-
-.card-group {
-    display: flex;
-    width: 100%;
-}
-
-.offerings {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 60px;
-    margin-top: -60px;
-    width: 95%;
-}
-
-.offering {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 10px 20px rgba(78, 198, 207, 0.473);
-    margin: 10px;
-    width: 300px;
-    height: 400px;
-    flex: 0 0 auto;
-    transition: transform 0.2s ease;
-    position: relative;
-    perspective: 1000px;
-}
-
-.offering-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
-}
-
-.offering.flipped .offering-inner {
-    transform: rotateY(180deg);
-}
-
-.offering-front,
-.offering-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.offering-front {
-    background-color: #ffffff;
-}
-
-.offering-back {
-    transform: rotateY(180deg);
-    background-color: #faf9f9;
-}
-
-.offering img {
-    width: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-top: 20px;
-}
-
-.offering h3 {
-    font-size: 18px;
-    color: #333;
-    padding: 15px 10px 5px;
-}
-
-.offering button {
-    background-color: #5fc2d3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 15px 0 20px;
-    border-radius: 3px;
-}
-
-.offering button:hover {
-    background-color: #2a64b9;
-}
-/* Estructura para las tarjetas en pantallas pequeñas */
-@media (max-width: 480px) {
-    .offerings {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .offering {
-        width: 100%; /* Ajusta el ancho para pantallas pequeñas */
-        margin-bottom: 20px;
-    } 
-    
-    .h2 {
-        font-size: 28px; /* Reduce el tamaño del encabezado */
-    }
-    .offering img {
-    width: 90%;
-    }
-
-    p.description {
-        font-size: 12px; /* Reduce el tamaño del párrafo */
-    }
-
-    .offering h3 {
-        font-size: 13px; /* Reduce el tamaño del texto del título en las tarjetas */
-    }
-
-    .texto-card {
-        font-size: 0.8em; /* Ajusta el tamaño del texto en las tarjetas */
-    }
-
-    .offering button {
-        padding: 8px 16px; /* Reduce el padding del botón para pantallas pequeñas */
-        font-size: 14px; /* Reduce el tamaño de letra del botón */
-    }
-}
-
-/* Estilos principales */
-.contact-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    background-color: #f5f5f500;
-    font-family: Arial, sans-serif;
-}
-
-/* Contenedor del formulario y la imagen */
-.contact-container {
-    display: flex;
-    height: 110%;
-    width: 90%;
-    max-width: 1200px;
-    background-color: #fff;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: -50px;
-}
-
-/* Imagen de la izquierda */
-.contact-image {
-    width: 50%;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.contact-image img {
-    width: 80%;
-}
-
-/* Estilos del formulario */
-.contact-form {
-    width: 50%;
-    padding: 40px;
-    background-color: #66b8d8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-
-.contact-form h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.form-group {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #ffffff;
-    color: #000;
-    font-size: 1rem;
-}
-
-.form-group label {
-    width: 100%;
-    font-size: 1rem;
-    color: #fff;
-}
-
-.submit-button button {
-    background-color: #e7e077;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-size: 14px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.submit-button button:hover {
-    background-color: #f7e1e1;
-}
-
-/* Estilos para pantallas pequeñas */
-@media (max-width: 480px) {
-    .contact-container {
-        flex-direction: column;
-        width: 90%;
-    }
-
-    /* Ocultar imagen en pantallas pequeñas */
-    .contact-image {
-        display: none;
-    }
-
-    .contact-form {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .contact-form h2 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    .form-group {
-        width: 100%;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 1rem;
-        padding: 12px;
-        width: 90%;
-    }
-
-    .submit-button button {
-        font-size: 1rem;
-        padding: 12px;
-    }
-}
-
-@media (min-width: 768px) {
-    .contact-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 60vh;
-        background-color: #f5f5f500;
-        font-family: Arial, sans-serif;
-        margin-top: 5%;
-        margin-bottom: 5%;
-    }
-
-    /* Contenedor del formulario y la imagen */
-    .contact-container {
-        display: flex;
-        width: 90%;
-        height: 125%;
-        background-color: #fff;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    /* Columna de la imagen */
-    .contact-image {
-        width: 50%;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .contact-image img {
-        width: 80%;
-    }
-
-    /* Columna del formulario */
-    .contact-form {
-        width: 80%;
-        padding: 30px;
-        background-color: #66b8d8;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #fff;
-    }
-
-    .contact-form h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* Estilo de cuadrícula para los campos del formulario */
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-        gap: 10px;
-        width: 100%;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 90%;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        background-color: #ffffff;
-        color: #333;
-        font-size: 1rem;
-    }
-
-    .form-group.textarea {
-        grid-column: span 2; /* Hace que el campo de mensaje ocupe ambas columnas */
-    }
-
-    /* Botón de envío */
-    .contact-form button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 15px;
-        background-color: #ff6b6b;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-
-    .contact-form button:hover {
-        background-color: #ff4c4c;
-    }
-}
-@media (min-width: 1440px) {
-    .contact-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 60vh;
-        background-color: #f5f5f500;
-        font-family: Arial, sans-serif;
-    }
-
-    /* Contenedor del formulario y la imagen */
-    .contact-container {
-        display: flex;
-        width: 100%;
-        height: 120%;
-        background-color: #fff;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    /* Columna de la imagen */
-    .contact-image {
-        width: 50%;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .contact-image img {
-        width: 80%;
-    }
-
-    /* Columna del formulario */
-    .contact-form {
-        width: 60%;
-        padding: 10px;
-        background-color: #66b8d8;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #fff;
-    }
-
-    .contact-form h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* Estilo de cuadrícula para los campos del formulario */
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-        gap: 10px;
-        width: 100%;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 90%;
-        padding: 15px;
-        border-radius: 5px;
-        border: none;
-        background-color: #ffffff;
-        color: #333;
-        font-size: 1rem;
-    }
-
-    .form-group.textarea {
-        grid-column: span 2; /* Hace que el campo de mensaje ocupe ambas columnas */
-    }
-
-    /* Botón de envío */
-    .contact-form button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 15px;
-        background-color: #ff6b6b;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-
-    .contact-form button:hover {
-        background-color: #ff4c4c;
-    }
-}
-
-@media (min-width: 2560px) {
-    .contact-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 35vh;
-        background-color: #f5f5f500;
-        font-family: Arial, sans-serif;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    /* Contenedor del formulario y la imagen */
-    .contact-container {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    /* Columna de la imagen */
-    .contact-image {
-        width: 50%;
-        background-color: #f5f5f5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .contact-image img {
-        width: 80%;
-    }
-
-    /* Columna del formulario */
-    .contact-form {
-        width: 60%;
-        padding: 10px;
-        background-color: #66b8d8;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #fff;
-    }
-
-    .contact-form h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* Estilo de cuadrícula para los campos del formulario */
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-        gap: 10px;
-        width: 100%;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 85%;
-        padding: 15px;
-        border-radius: 5px;
-        border: none;
-        background-color: #ffffff;
-        color: #333;
-        font-size: 1rem;
-    }
-
-    .form-group.textarea {
-        grid-column: span 2; /* Hace que el campo de mensaje ocupe ambas columnas */
-    }
-
-    /* Botón de envío */
-    .contact-form button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 15px;
-        background-color: #ff6b6b;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-
-    .contact-form button:hover {
-        background-color: #ff4c4c;
-    }
-}
-
-footer {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
-        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
-        background-color: #000000;
-        font-size: 14px;
-    }
-
-    .footer-container p {
-        font-size: 1em;
-        color: rgb(255, 255, 255);
-        margin-bottom: 20px;
-        margin-top: 10px;
-    }
-
-    .contact-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 100px; /* Espacio entre los iconos de contacto */
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .contact-item span {
-        font-size: 1.2em;
-        color: rgb(255, 255, 255);
-    }
-
-    @media (max-width: 768px) {
-    .contact-info {
-        flex-direction: column; /* Cambia la dirección a columna en móviles */
-        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
-    }
-
-    .contact-item {
-        justify-content: center; /* Centra los iconos de contacto en móviles */
-    }
-
-    .contact-item span {
-        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
-    }
-}
-
-</style>
 </head>
 <body>
 
 <header>
-    </div>
-    <h1 class="contact">Contacto: 55 2449 8795</h1>
-    <div class="social-icons">
-        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
-        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
-        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
-    </div>
-</header>
-</nav>
-<nav class="main-nav">
-    <div class="logo">
-        <img src="Ingresaentrada.jpeg" alt="Logo de la empresa">
-    </div>
+    <img src="LOGO ingresa.png" alt="Logo" class="logo">
+    <nav class="main-nav">
+
     <ul>
         <li><a href="index.html">Inicio</a></li>
+
         <li class="dropdown">
             <a href="#">Cursos ▼</a>
             <div class="dropdown-content">
@@ -1040,348 +32,337 @@ footer {
                 <a href="TECNM.html">TECNM</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#">Iniciar Sesión ▼</a>
-            <div class="dropdown-content">
-                <a href="login.html">Alumnos</a>
-            </div>
-        </li>
+
         <li><a href="NOSOTROS.html">Nosotros</a></li>
         <li><a href="#contact">Contáctanos</a></li>
     </ul>
 </nav>
 
-<div class="slider">
-        <div class="slide"><img src="1.png" alt="Imagen 1"></div>
-        <div class="slide"><img src="2.png" alt="Imagen 2"></div>
-        <div class="slide"><img src="3.png" alt="Imagen 3"></div>
-        <div class="slide"><img src="4.png" alt="Imagen 4"></div>
-        <div class="slide"><img src="5.png" alt="Imagen 5"></div>
-        <div class="slide"><img src="6.png" alt="Imagen 6"></div>
+    <div class="social-icons">
+        <a href="https://wa.me/525524498795"><img src="whts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
+        <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
     </div>
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-</div>
-<!-- NUESTROS CURSOS -->
-<div class="CURSOS">
-    <div class="cursos">
-        <a href="IPN.html"><img src="poli.png" alt="Politecnico"></a>
-        <h3>IPN</h3>
-    </div>
-    <div class="cursos">
-        <a href="UNAM.html"><img src="unam.png" alt="UNAM"></a>
-        <h3>UNAM</h3>
-    </div>
-    <div class="cursos">
-        <a href="UAM.html"><img src="uam.png" alt="UAM"></a>
-        <h3>UAM</h3>
-    </div>
-    <div class="cursos">
-        <a href="UAEMEX.html"><img src="uaemex.png" alt="UAEMEX"></a>
-        <h3>UAEMEX</h3>
-    </div>
-    <div class="cursos">
-        <a href="UADY.html"><img src="uady.png" alt="UADY"></a>
-        <h3>UADY</h3>
-    </div>
-    <div class="cursos">
-        <a href="COMIPEMS.html"><img src="ecoems.png" alt="COMIPEMS"></a>
-        <h3>Media Superior</h3>
-    </div>
-    <div class="cursos">
-        <a href="UV.html"><img src="uv.png" alt="UV"></a>
-        <h3>UV</h3>
-    </div>
-    <div class="cursos">
-        <a href="TECNM.html"><img src="tecnm.png" alt="TECNM"></a>
-        <h3>TECNM</h3>
-    </div>
-</div>
-<script>
-    let slideIndex = 0;
-    showSlides(slideIndex);
+</header>
 
-    function moveSlide(n) {
-    showSlides(slideIndex += n);
-    }
+<!-- VIDEO -->
+<section class="video-section">
+    <video autoplay muted loop class="video-bg">
+        <source src="entrada.mp4" type="video/mp4">
+    </video>
 
-    function currentSlide(n) {
-    showSlides(slideIndex = n - 1);
-    }
+    <div class="video-content">
+        <h1>Transforma tu preparación en resultados reales.</h1>
+        <p>Tu futuro empieza con una decisión hoy.</p>
+        <button class="btn-1">
+    <span>Inscríbete</span>
+</button>
 
-    function showSlides(n) {
-    const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".dot");
-
-    if (n >= slides.length) {
-    slideIndex = 0;
-    } else if (n < 0) {
-    slideIndex = slides.length - 1;
-    }
-
-    slides.forEach((slide, index) => {
-    slide.style.display = (index === slideIndex) ? "block" : "none";
-    });
-
-    dots.forEach((dot, index) => {
-    dot.className = (index === slideIndex) ? "dot active" : "dot";
-    });
-    }
-    setInterval(() => {
-    moveSlide(1);
-    }, 5000);
-    </script>
-<!-- Sección de introducción -->
-<div class="intro-container">
-    <h2>Asegura tu lugar en la institución de tus sueños</h2>
-    <h2>¿Qué ofrecemos?</h2>
-    <p class="description">Da el primer paso a tu futuro profesional, nuestro curso INGRESA está especialmente diseñado para ti. Te damos todo lo que necesitas para superar con éxito el examen de admisión.</p>
-</div>
-
-<!-- Sección del slider de tarjetas -->
-    <div class="card-slider">
-        <div class="card-group">
-            <div class="offerings">
-                <!-- Tarjeta 1 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="Preparacion.jpg" alt="Preparación completa">
-                            <h3>Profesores Especializados</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Profesores Especializados</h3>
-                            <p class="texto-card">Contamos con un equipo de profesores altamente especializados en cada materia, dedicados a brindarte una enseñanza de calidad y personalizada.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="examen.jpg" alt="Exámenes Simulacro">
-                            <h3>Exámenes Simulacro</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Exámenes Simulacro</h3>
-                            <p class="texto-card">Prepárate para el éxito con nuestros exámenes simulacro, diseñados para replicar la experiencia real de una prueba de admisión. Identifica tus áreas de mejora y mide tu progreso.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 3 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="plataforma.jpg" alt="Plataforma Educativa">
-                            <h3>Plataforma Educativa</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Plataforma Educativa</h3>
-                            <p class="texto-card">Accede a recursos multimedia y sube tus tareas. Aquí encontrarás los links a clases, tendrás gráficas personalizadas para medir tu progreso y recibir notificaciones sobre fechas importantes.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 4 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="clases online.png" alt="Clases en vivo">
-                            <h3>Clases en vivo</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Clases en Vivo</h3>
-                            <p class="texto-card">Aprende desde cualquier lugar con nuestras clases en línea en vivo. Disfruta de la flexibilidad de estudiar a tu ritmo, interactuar con profesores en tiempo real y resolver tus dudas al instante.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="Temario.png" alt="Temarios">
-                            <h3>Temarios Resueltos y Actualizados</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Temarios Resueltos y Actualizados</h3>
-                            <p class="texto-card">Accede a temarios completamente resueltos y actualizados, para cubrir cada aspecto del examen de admisión. Con materiales claros y detallados, tendrás todo lo que necesitas para estudiar de manera eficiente.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="guía.png" alt="Guías">
-                            <h3>Guías Resueltas</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Guías Resueltas</h3>
-                            <p class="texto-card">Nuestras guías te ofrecen explicaciones paso a paso para que puedas comprender cada tema a fondo. Enfocadas en los puntos clave que necesitas dominar.</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 3 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="horarios.png" alt="horarios">
-                            <h3>Horarios Flexibles</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Horarios Flexibles</h3>
-                            <p class="texto-card"> Ofrecemos horarios flexibles que se adaptan a tu estilo de vida. Ya sea por la mañana, tarde o noche, tendrás la libertad de elegir lo que mejor te convenga. ¡Inscríbete hoy y descubre el equilibrio perfecto entre estudio y vida personal!</p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tarjeta 4 -->
-                <div class="offering">
-                    <div class="offering-inner">
-                        <div class="offering-front">
-                            <img src="clase.png" alt="Clases">
-                            <h3>Clases Extra</h3>
-                            <button class="ver-mas">Ver más</button>
-                        </div>
-                        <div class="offering-back">
-                            <h3>Clases Extra</h3>
-                            <p class="texto-card">¡Sin costo adicional! recibirás clases extra en caso de ser necesario porque queremos asegurarnos de que tengas todas las herramientas para tu éxito académico. ¡No dejes pasar esta oportunidad y maximiza tu preparación para el ingreso a tu escuela! </p>
-                            <button class="ver-menos">Ver menos</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        <section id="testimonials">
-            <div class="container">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 1.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 2.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 3.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 4.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 5.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 6.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="REFERENCIA 7.png" alt="Captura de pantalla del proyecto Innovatech" class="testimonial-screenshot">
-                    </div>
-                </div>
-            </div>
-        </section>
-<script>
-    // Seleccionamos todos los botones "Ver más"
-document.querySelectorAll('.ver-mas').forEach(button => {
-    button.addEventListener('click', function() {
-        const card = this.closest('.offering'); // Encuentra la tarjeta relacionada con el botón
-        card.classList.add('flipped'); // Añade la clase que activa el giro
-    });
-});
-
-// Botón para volver a la vista frontal
-document.querySelectorAll('.ver-menos').forEach(button => {
-    button.addEventListener('click', function() {
-        const card = this.closest('.offering'); // Encuentra la tarjeta relacionada con el botón
-        card.classList.remove('flipped'); // Quita la clase que activa el giro
-    });
-});
-</script>
-<!-- Inscríbete -->
-<section class="contact-section" id="contact">
-    <div class="contact-container">
-        <!-- Imagen de la izquierda -->
-        <div class="contact-image">
-            <img src="CONTACTANOS.png" alt="Customer Service">
-        </div>
-
-        <!-- Formulario de contacto -->
-        <div class="contact-form">
-            <h2>Contáctanos</h2>
-            <form action="https://formspree.io/f/xanwzlzw" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <input type="text" placeholder="Nombre" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Apellido" name="lastName" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Teléfono" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Correo Electrónico" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="course" name="course" required>
-                            <option value="" disabled selected>Selecciona un Curso</option>
-                            <option value="IPN">IPN</option>
-                            <option value="UNAM">UNAM</option>
-                            <option value="UAM">UAM</option>
-                            <option value="UAEMEX">UAEMEX</option>
-                            <option value="COMIPEMS">COMIPEMS</option>
-                            <option value="UADY">UADY</option>
-                            <option value="UV">UV</option>
-                            <option value="TECNM">TECNM</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select id="mode" name="mode" required>
-                            <option value="" disabled selected>Selecciona una Modalidad</option>
-                            <option value="presencial">Presencial</option>
-                            <option value="en-linea">En línea</option>
-                        </select>
-                    </div>
-                    <!-- Campo de mensaje que ocupa toda la fila -->
-                    <div class="form-group textarea">
-                        <textarea placeholder="Mensaje" name="message" rows="4" required></textarea>
-                    </div>
-                </div>
-                <!-- Botón de envío que ocupa toda la fila -->
-                <div class="form-group submit-button">
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
-        </div>
     </div>
 </section>
 
-<!-- Pie de página -->
+<!-- NUESTROS CURSOS -->
+<div class="CURSOS">
+    <div class="cursos" data-curso="ipn">
+        <img src="poli.png" alt="Politecnico" class="icono-curso" data-curso="ipn">
+        <h3>IPN</h3>
+    </div>
+    <div class="cursos" data-curso="unam">
+        <img src="unam.png" alt="UNAM" class="icono-curso" data-curso="unam">
+        <h3>UNAM</h3>
+    </div>
+    <div class="cursos" data-curso="uam">
+        <img src="uam.png" alt="UAM" class="icono-curso" data-curso="uam">
+        <h3>UAM</h3>
+    </div>
+    <div class="cursos" data-curso="uaemex">
+        <img src="uaemex.png" alt="UAEMEX" class="icono-curso" data-curso="uaemex">
+        <h3>UAEMEX</h3>
+    </div>
+    <div class="cursos" data-curso="uady">
+        <img src="uady.png" alt="UADY" class="icono-curso" data-curso="uady">
+        <h3>UADY</h3>
+    </div>
+    <div class="cursos" data-curso="comipems">
+        <img src="ecoems.png" alt="COMIPEMS" class="icono-curso" data-curso="comipems">
+        <h3>Media Superior</h3>
+    </div>
+    <div class="cursos" data-curso="uv">
+        <img src="uv.png" alt="UV" class="icono-curso" data-curso="uv">
+        <h3>UV</h3>
+    </div>
+    <div class="cursos" data-curso="tecnm">
+        <img src="tecnm.png" alt="TECNM" class="icono-curso" data-curso="tecnm">
+        <h3>TECNM</h3>
+    </div>
+    <div class="cursos" data-curso="uaslp">
+        <img src="UASLP.png" alt="UASLP" class="icono-curso" data-curso="uaslp">
+        <h3>UASLP</h3>
+    </div>
+</div>
+
+<!-- Sección de la tarjeta que aparecerá -->
+<div id="seccion-curso" data-abierto="">
+    <div class="triangulo"></div>
+    <div id="contenido-curso"></div>
+</div>
+
+<section id="seccion-curso" class="seccion-curso">
+    <div id="contenido-curso" class="contenido-curso"></div>
+</section>
+
+<!-- INTRODUCCIÓN -->
+<div class="intro-container">
+    <h2>Asegura tu lugar en la institución de tus sueños</h2>
+    <h2>¿Qué ofrecemos?</h2>
+    <p class="description">Da el primer paso a tu futuro profesional, nuestro curso INGRESA está especialmente diseñado para ti...</p>
+</div>
+
+<!-- TARJETAS - SLIDER -->
+<div class="card-slider">
+    <div class="card-group">
+        <div class="offerings">
+            <!-- 1 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="Preparacion.jpg" alt="Preparación completa">
+                        <h3>Profesores Especializados</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Profesores Especializados</h3>
+                        <p class="texto-card">Nuestros maestros altamente capacitados te guían con estrategias efectivas y atención personalizada para que alcances tu máximo potencial.</p>
+                    <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="examen.jpg" alt="Exámenes Simulacro">
+                        <h3>Exámenes Simulacro</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Exámenes Simulacro</h3>
+                        <p class="texto-card">Simula el examen real, identifica tus fortalezas y mejora tus resultados con nuestros exámenes simulacro ilimitados disponibles 24/7.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="plataforma.jpg" alt="Plataforma Educativa">
+                        <h3>Plataforma Educativa</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Plataforma Educativa</h3>
+                        <p class="texto-card">Accede a nuestra plataforma educativa y encuentra todos los recursos que necesitas: ejercicios, guías, exámenes y seguimiento de tu progreso en un solo lugar.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="clases online.png" alt="Clases en vivo">
+                        <h3>Diferentes Modalidades</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Diferentes Modalidades</h3>
+                        <p class="texto-card">Elige la modalidad que se adapte a ti: clases presenciales para interacción directa o en línea para estudiar desde cualquier lugar con total comodidad.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="Temario.png" alt="Temarios">
+                        <h3>Temarios Resueltos</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Temarios Resueltos y Actualizados</h3>
+                        <p class="texto-card">Accede a temarios totalmente resueltos y siempre actualizados para que estudies con material confiable y al día con los exámenes.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="guía.png" alt="Guías">
+                        <h3>Guías Resueltas</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Guías Resueltas</h3>
+                        <p class="texto-card">Accede a nuestras guías completamente resueltas basadas en las oficiales para que estudies de manera eficiente y refuerces tus conocimientos paso a paso.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="horarios.png" alt="Horarios">
+                        <h3>Horarios Flexibles</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Horarios Flexibles</h3>
+                        <p class="texto-card">Organiza tu estudio según tu tiempo: nuestras clases y recursos están disponibles en horarios flexibles que se adaptan a tu rutina.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="offering">
+                <div class="offering-inner">
+                    <div class="offering-front">
+                        <img src="clase.png" alt="Clases">
+                        <h3>Clases Extra</h3>
+                        <button class="button">Ver más</button>
+                    </div>
+                    <div class="offering-back">
+                        <h3>Clases Extra</h3>
+                        <p class="texto-card">En caso de que lo requieras aprovecha nuestras clases extra gratuitas y potencia tu preparación sin pagar de más.</p>
+                        <button class="button">Ver menos</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- SCRIPTS TARJETAS -->
+<script>
+document.querySelectorAll('.ver-mas').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.offering').classList.add('flipped');
+    });
+});
+
+document.querySelectorAll('.ver-menos').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.offering').classList.remove('flipped');
+    });
+});
+</script>
+
+<!-- CONTACTO -->
+<div id="app" class="min-h-full flex items-center justify-center p-8">
+   <div class="w-full max-w-7xl">
+    <div class="gold-border">
+     <div class="rounded-2xl shadow-2xl overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-5 min-h-[600px]"><!-- Panel Derecho - Información -->
+       <div class="lg:col-span-2 p-12 flex flex-col justify-center order-1 lg:order-2">
+        <div class="mb-8">
+         <div class="w-16 h-16 rounded-full mb-6 flex items-center justify-center text-3xl shadow-lg">
+          ✨
+         </div>
+         <h1 id="titulo" class="text-5xl font-bold mb-4 leading-tight">Solicita Información</h1>
+         <p id="subtitulo" class="text-lg leading-relaxed">Completa tus datos y nos pondremos en contacto contigo</p>
+        </div>
+        <div class="space-y-6">
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
+           📧
+          </div>
+          <div>
+           <h3 class="font-bold text-lg mb-1">Email</h3>
+           <p class="text-sm opacity-90">contacto@ejemplo.com</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
+           📱
+          </div>
+          <div>
+           <h3 class="font-bold text-lg mb-1">Tel��fono</h3>
+           <p class="text-sm opacity-90">+52 123 456 7890</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0 shadow-md">
+           ⏰
+          </div>
+          <div>
+           <h3 class="font-bold text-lg mb-1">Horario</h3>
+           <p class="text-sm opacity-90">Lun - Vie: 9:00 AM - 6:00 PM</p>
+          </div>
+         </div>
+        </div>
+       </div><!-- Panel Izquierdo - Formulario -->
+       <div class="lg:col-span-3 p-12 order-2 lg:order-1">
+        <form id="contactForm" class="h-full flex flex-col justify-center">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div><label for="nombre" class="block text-sm font-bold mb-2">Nombre Completo *</label> <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="Tu nombre completo">
+          </div>
+          <div><label for="correo" class="block text-sm font-bold mb-2">Correo Electrónico *</label> <input type="email" id="correo" name="correo" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div><label for="telefono" class="block text-sm font-bold mb-2">Teléfono *</label> <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all" placeholder="+52 123 456 7890">
+          </div>
+          <div><label for="curso" class="block text-sm font-bold mb-2">Curso de Interés *</label> <select id="curso" name="curso" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all"> <option value="">Selecciona un curso</option> <option value="Diseño Gráfico">Diseño Gráfico</option> <option value="Desarrollo Web">Desarrollo Web</option> <option value="Marketing Digital">Marketing Digital</option> <option value="Fotografía">Fotografía</option> <option value="Programación">Programación</option> <option value="Otro">Otro</option> </select>
+          </div>
+          <div class="md:col-span-2"><label for="modalidad" class="block text-sm font-bold mb-2">Modalidad de Interés *</label>
+           <div class="grid grid-cols-3 gap-4"><label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="Presencial" required class="peer sr-only">
+             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
+              Presencial
+             </div></label> <label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="En línea" required class="peer sr-only">
+             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
+              En línea
+             </div></label> <label class="relative cursor-pointer"> <input type="radio" name="modalidad" value="Híbrida" required class="peer sr-only">
+             <div class="px-6 py-3 rounded-lg border-2 text-center font-semibold transition-all peer-checked:border-opacity-100 peer-checked:shadow-lg">
+              Híbrida
+             </div></label>
+           </div>
+          </div>
+          <div class="md:col-span-2"><label for="mensaje" class="block text-sm font-bold mb-2">Mensaje *</label> <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-all resize-none" placeholder="Cuéntanos más sobre tu interés..."></textarea>
+          </div>
+         </div><button type="submit" id="submitBtn" class="w-full py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3 shine-effect"> <span id="btnText">Enviar Solicitud</span> <span id="btnSpinner" class="spinner hidden"></span> </button>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+<!-- FOOTER -->
 <footer>
     <div class="footer-container">
         <p>Escríbenos por medio del chat de la página o:</p>
+
         <div class="contact-info">
             <div class="contact-item">
                 <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
                 <span>5524498795</span>
             </div>
+
             <div class="contact-item">
                 <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
                 <span>Ingresa.con</span>
             </div>
+
             <div class="contact-item">
                 <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
                 <span>Ingresa.con</span>
@@ -1389,7 +370,22 @@ document.querySelectorAll('.ver-menos').forEach(button => {
         </div>
     </div>
 </footer>
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
+<!-- CHAT CRISP -->
+<script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "e74f25df-c4f6-4c82-8964-59631d82ef23";
+    (function () {
+        let d = document;
+        let s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
+<script src="script.js"></script>
+<script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

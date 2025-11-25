@@ -1,0 +1,702 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: repeat;
+}
+
+header {
+    background-color: #ffffff;
+    color: white;
+    padding: 0 2%; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea todos los elementos verticalmente al centro */
+    height: 60px; /* Altura ajustada para mejor visibilidad */
+    position: relative;
+    z-index: 1000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.logo {
+    height: 200px;
+    width: 200px; 
+}
+
+.main-nav {
+    flex: 1;                  
+    display: flex;
+    justify-content: center;    
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    font-size: 16px;           
+    font-weight: 500;          
+    color: #333;              
+    text-decoration: none;      
+    padding: 8px 12px;          
+    border-radius: 8px;         
+    transition: 0.3s ease;     
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-nav ul li a:hover {
+    background-color: #f0f0f0;  /* Fondo sutil */
+    color: #000;                /* Texto más oscuro */
+}
+
+
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #ffffff; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1001;
+    border-radius: 5px; 
+    min-width: 120px;
+}
+
+.dropdown-content a {
+    padding: 4px 8px; /* Reduce el espaciado interno de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    text-align: center; /* Centra el texto en el enlace */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco para el enlace */
+    font-size: 17px; /* Tamaño de fuente más pequeño */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.dropdown-content a:hover {
+    background-color: #c7bebe; /* Color de fondo al pasar el mouse sobre el enlace */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el contenido del dropdown al pasar el mouse */
+}
+
+.dropdown:hover > a {
+    background-color: #707272; /* Color de fondo para el enlace al pasar el mouse */
+    color: white; /* Cambia el color del texto al blanco */
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
+    align-items: center; /* Centra verticalmente los iconos */
+}
+
+/*==============================Final del HEADER==========================*/
+
+/* Contenedor del video */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajusta el tamaño del alto */
+    overflow: hidden;
+}
+
+/* Video de fondo */
+.video-bg {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    min-width: 150%;
+    min-height: 150%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(60%); /* Oscurecer un poco para que resalte el texto */
+}
+
+.video-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    
+    /* Usamos flex para centrar verticalmente sin transform */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    
+    /* Animación suave */
+    opacity: 0;
+    animation: slideFadeIn 1s ease-out forwards; /* forwards mantiene estado final */
+}
+
+/* Animación: desde abajo hacia el centro */
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.video-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #fff176, #ffeb3b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Párrafo */
+.video-content {
+    display: flex;
+    flex-direction: column; /* apila los elementos verticalmente */
+    align-items: center;    /* centra horizontalmente todos los hijos */
+    text-align: center;     /* centra el texto */
+    gap: 15px;              /* espacio entre h1, p y botón */
+}
+
+.video-content p {
+    font-size: 1.4rem;               /* tamaño del texto */
+    margin-bottom: 30px;             /* espacio debajo */
+    color: rgba(255, 255, 255, 0.95); /* color con un poco más de opacidad */
+    line-height: 1.6;                /* altura de línea */
+    text-align: center;              /* centrado */
+    font-weight: 500;                /* un poco más grueso */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* sombra para destacar sobre el video */
+    letter-spacing: 0.5px;           /* espacio entre letras */
+    animation: fadeInUp 1.2s ease forwards; /* animación sutil al cargar */
+    background: rgba(0, 0, 0, 0.123); /* fondo negro semitransparente */
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-1 {
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 200px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+  position: relative; /* importante para ::before */
+}
+
+.btn-1 span {
+  display: inline-block;
+  transform: skew(21deg);
+}
+
+.btn-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: rgb(133, 128, 69);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.btn-1:hover {
+  color: #fff;
+}
+
+.btn-1:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+/*===================================FINAL DEL VIDEO============================*/
+/* =======================
+   CONTENEDOR DE CURSOS
+========================== */
+.CURSOS {
+    margin: 120px 0 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 40px;
+    text-align: center;
+    width: 100%;
+    z-index: 0;
+}
+
+.cursos {
+    flex: 0 1 180px;
+    max-width: 180px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Iconos */
+.cursos img {
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+.cursos img:hover {
+    transform: scale(1.2);
+}
+
+/* 🔥 Icono seleccionado */
+.cursos.seleccionado img {
+    transform: scale(1.38);
+}
+
+/* Texto */
+.cursos h3 {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+/* =======================
+   ANIMACIÓN
+========================== */
+@keyframes bounce {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.icono-curso.animando {
+    animation: bounce 0.3s;
+}
+
+/* =======================
+   SECCIÓN DEL CURSO
+========================== */
+#seccion-curso {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    display: none;
+}
+
+#seccion-curso.activa {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Tarjeta */
+#contenido-curso {
+    padding: 25px;
+    margin: 40px auto 0;
+    width: 90%;
+    max-width: 1500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    position: relative;
+    color: #fff; /* texto en blanco para contraste */
+    transition: background 0.3s ease;
+}
+
+#seccion-curso .triangulo {
+    position: absolute;
+    top: -20px; 
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 20px solid white; /* antes estaba blanco */
+    filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.15));
+    transition: left 0.3s ease, border-bottom-color 0.3s ease; /* añadimos transición de color */
+}
+
+
+/* =======================
+   EFECTO DE APARICIÓN
+========================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =======================
+   RESPONSIVE
+========================== */
+@media (max-width: 768px) {
+    .CURSOS { margin: 80px 0; flex-wrap:wrap; }
+    .cursos { flex: 0 1 120px; }
+    .cursos img { width: 80px; height: 80px; }
+    .cursos.seleccionado img { transform: scale(1.3); }
+}
+
+@media (max-width: 480px) {
+    .CURSOS { margin: 60px 0; gap: 15px; }
+    .cursos { flex: 0 1 100px; }
+    .cursos img { width: 70px; height: 70px; }
+}
+
+/*==============================FINAL CURSOS===========================================*/
+
+.intro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: -50px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    color: #8a2626;
+}
+
+p.description {
+    font-size: 20px;
+    color: #8a2626;
+    margin: 0 auto 20px;
+    max-width: 1000px;
+}
+
+/* Texto de tarjetas */
+.texto-card {
+    background-color: #ffffff00;
+    padding: 25px;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    text-align: justify;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Estructura del slider */
+.card-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 40px auto 0;
+}
+
+.card-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.card-group {
+    display: flex;
+    width: 100%;
+}
+
+.offerings {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 60px;
+    margin-top: -60px;
+    width: 95%;
+}
+
+.offering {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #2f2a6d96;
+    margin: 10px;
+    width: 300px;
+    height: 400px;
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+    position: relative;
+    perspective: 1000px;
+}
+
+.offering-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.offering.flipped .offering-inner {
+    transform: rotateY(180deg);
+}
+
+.offering-front,
+.offering-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.offering-front {
+    background-color: #ffffff;
+}
+
+.offering-back {
+    transform: rotateY(180deg);
+    background-color: #faf9f9;
+}
+
+.offering img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 20px;
+}
+
+.offering h3 {
+    font-size: 18px;
+    color: #333;
+    padding: 15px 10px 5px;
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(193, 163, 98);
+  border: 2px solid rgb(193, 163, 98);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.button:active {
+  scale: 1;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Centra los elementos de la lista */
+    }
+
+    .main-nav li {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
+    }
+}
+
+/*=======================================FINAL TARJETAS=========================*/
+
+.toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.3s ease-out;
+      z-index: 1000;
+    }
+    
+    .toast.success {
+      background: linear-gradient(135deg, #d4af37 0%, #f4e5b1 100%);
+      color: #1a1a1a;
+    }
+    
+    .toast.error {
+      background-color: #dc2626;
+      color: white;
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+    
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .gold-border {
+      position: relative;
+    }
+    
+    .gold-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, #d4af37, #f4e5b1, #d4af37);
+      border-radius: 16px;
+      z-index: -1;
+    }
+    
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .shine-effect:hover::after {
+      left: 100%;
+    }
+
+footer {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
+        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
+        background-color: #000000;
+        font-size: 14px;
+    }
+
+    .footer-container p {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px; /* Espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-item span {
+        font-size: 1.2em;
+        color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Cambia la dirección a columna en móviles */
+        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
+    }
+
+    .contact-item {
+        justify-content: center; /* Centra los iconos de contacto en móviles */
+    }
+
+    .contact-item span {
+        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
+    }
+}
