@@ -1,141 +1,185 @@
-// Información de cada curso
-const infoCursos = {
-    ipn: {
-        titulo: "Curso IPN",
-        descripcion: "Temario actualizado, ejercicios, exámenes y asesorías personalizadas."
-    },
-    unam: {
-        titulo: "Curso UNAM",
-        descripcion: "Preparación completa para el examen de ingreso a la UNAM."
-    },
-    uam: {
-        titulo: "Curso UAM",
-        descripcion: "Simuladores y reforzamiento por áreas académicas."
-    },
-    uaemex: {
-        titulo: "Curso UAEMEX",
-        descripcion: "Curso especializado para aspirantes a la UAEMEX."
-    },
-    uady: {
-        titulo: "Curso UADY",
-        descripcion: "Guías, ejercicios y práctica para el examen de admisión."
-    },
-    comipems: {
-        titulo: "Curso COMIPEMS",
-        descripcion: "Curso completo para nivel medio superior."
-    },
-    uv: {
-        titulo: "Curso UV",
-        descripcion: "Estrategias y contenido para ingresar a la Universidad Veracruzana."
-    },
-    tecnm: {
-        titulo: "Curso TECNM",
-        descripcion: "Temario específico y simulaciones reales."
-    },
-    uaslp: {
-        titulo: "Curso UASLP",
-        descripcion: "Preparación integral para la Universidad Autónoma de San Luis Potosí."
-    }
-};
-const coloresCursos = {
-    ipn: "#e31c23",      // rojo típico IPN
-    unam: "#1b4d3e",     // azul/verde UNAM
-    uam: "#ffcc00",      // amarillo UAM
-    uaemex: "#003366",   // azul UAEMEX
-    uady: "#006633",     // verde UADY
-    comipems: "#ff9900", // naranja COMIPEMS
-    uv: "#002147",       // azul UV
-    tecnm: "#ff6600",    // naranja TECNM
-    uaslp: "#00539f"     // azul UASLP
-};
-
-const coloresTexto = {
-    ipn: "#ffffff",      // blanco sobre rojo
-    unam: "#ffffff",     
-    uam: "#000000",      // negro sobre amarillo
-    uaemex: "#ffffff",   
-    uady: "#ffffff",     
-    comipems: "#000000", 
-    uv: "#ffffff",       
-    tecnm: "#ffffff",    
-    uaslp: "#ffffff"     
-};
-
-const coloresTitulo = {
-    ipn: "#ffd700",      // dorado sobre rojo
-    unam: "#ffcc00",
-    uam: "#003366",
-    uaemex: "#ff6600",
-    uady: "#ffff00",
-    comipems: "#003300",
-    uv: "#ff9900",
-    tecnm: "#000000",
-    uaslp: "#ffffff"
-};
-
-// Elementos de la sección
-const seccion = document.getElementById("seccion-curso");
-const contenido = document.getElementById("contenido-curso");
-const triangulo = document.querySelector("#seccion-curso .triangulo");
-
-// Eventos para cada icono
-document.querySelectorAll(".icono-curso").forEach(icono => {
-    icono.addEventListener("click", () => {
-
-        const curso = icono.getAttribute("data-curso");
-
-        // Quitar selección previa
-        document.querySelectorAll(".icono-curso").forEach(i =>
-            i.classList.remove("seleccionado")
-        );
-
-        // Si ya está abierta y es el mismo → cerrar
-        if (seccion.classList.contains("activa") && seccion.dataset.abierto === curso) {
-            seccion.classList.remove("activa");
-            seccion.dataset.abierto = "";
-            return;
+const dbCursos = {
+        ipn: {
+            titulo: "IPN",
+            precio: "$5,000",
+            color: "#6f1c46", // Guinda
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        unam: {
+            titulo: "UNAM",
+            precio: "$5,000",
+            color: "#1c3d6f", // Azul Oro
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        uam: {
+            titulo: "UAM",
+            precio: "$5,000",
+            color: "#3c78bcff", // Negro
+           temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        uaemex: {
+            titulo: "UAEMEX",
+            precio: "$4,500",
+            color: "#2e7d32", // Verde
+           temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        uady: {
+            titulo: "UADY",
+            precio: "$4,500",
+            color: "#919136ff", // Azul
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        comipems: {
+            titulo: "ECOEMS (Media Superior)",
+            precio: "$3,800",
+            color: "#d18b29ff", // Verde Azulado
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        uv: {
+            titulo: "UV",
+            precio: "$4,600",
+            color: "#2e9d2aff", // Azul
+           temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        tecnm: {
+            titulo: "TECNM",
+            precio: "$4,200",
+            color: "#782828ff", // Rojo
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
+        },
+        uaslp: {
+            titulo: "UASLP (ONLINE)",
+            precio: "$2,000",
+            color: "#25639aff", // Azul claro
+            temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
+            horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
         }
+    };
 
-        // Animación del icono
-        icono.classList.add("animando");
-        setTimeout(() => icono.classList.remove("animando"), 300);
+  const seccion = document.getElementById("seccion-curso");
+    const contenido = document.getElementById("contenido-curso");
+    const triangulo = document.querySelector(".triangulo");
+    
+    // CORRECCIÓN 1: Seleccionamos TANTO los iconos COMO los enlaces del menú
+    // .cursos = Iconos | .btn-menu = Enlaces del Dropdown
+    const todosLosActivadores = document.querySelectorAll(".cursos, .btn-menu");
+    const soloIconos = document.querySelectorAll(".cursos"); // Para efectos visuales
 
-        // Marcar icono como seleccionado
-        icono.classList.add("seleccionado");
+    // --- LÓGICA DE CLIC ---
+    todosLosActivadores.forEach(elemento => {
+        elemento.addEventListener("click", (e) => {
+            // Prevenir salto si es un enlace <a>
+            if(elemento.tagName === 'A') e.preventDefault();
 
-        // Actualizar contenido
-        contenido.innerHTML = `
-            <h2>${infoCursos[curso].titulo}</h2>
-            <p>${infoCursos[curso].descripcion}</p>
-        `;
+            // 1. Identificar el curso
+            const cursoKey = elemento.getAttribute("data-curso");
+            const data = dbCursos[cursoKey];
 
-        contenido.style.background = coloresCursos[curso];
-        contenido.style.color = coloresTexto[curso];
-        triangulo.style.borderBottomColor = coloresCursos[curso];
-        contenido.querySelector("h2").style.color = coloresTitulo[curso];
+            if (!data) return; 
 
-        // Mostrar sección
-        seccion.classList.add("activa");
-        seccion.dataset.abierto = curso;
+            // 2. Manejo de estado visual
+            const estaAbierto = seccion.dataset.abierto === cursoKey;
 
-        // 📍 Posicionar el triángulo debajo del icono seleccionado
-        const rectIcono = icono.getBoundingClientRect();
-        const rectSeccion = seccion.getBoundingClientRect();
-        const posicion = rectIcono.left + rectIcono.width / 2 - rectSeccion.left;
+            // Si ya está abierto y le doy click al mismo -> CERRAR
+            if (seccion.classList.contains("activa") && estaAbierto) {
+                cerrarSeccion();
+                return;
+            }
 
-        triangulo.style.left = `${posicion - 14}px`; // 14 = mitad del ancho del triángulo
+            // Resaltar icono visualmente (solo si existe en la grilla)
+            soloIconos.forEach(icon => icon.classList.remove("activo"));
+            
+            // Buscamos si hay un icono que corresponda a este curso para activarlo visualmente
+            const iconoCorrespondiente = document.querySelector(`.cursos[data-curso="${cursoKey}"]`);
+            if(iconoCorrespondiente) {
+                iconoCorrespondiente.classList.add("activo");
+            }
+
+            // 3. Actualizar la Variable CSS de color
+            contenido.style.setProperty('--color-tema', data.color);
+
+            // 4. Generar HTML
+            const listaTemario = data.temario.map(item => `<li>${item}</li>`).join('');
+            const listaHorarios = data.horarios.map(item => `<li>${item}</li>`).join('');
+
+            contenido.innerHTML = `
+                <div class="plan-container">
+                    <header class="plan-header">
+                        <h2>${data.titulo}</h2>
+                        <div class="plan-subtitle">
+                        <div class="header-divider"></div>
+                    </header>
+
+                    <div class="plan-content">
+                        <div class="plan-col plan-left">
+                            <h3>Lo que incluye:</h3>
+                            <ul>${listaTemario}</ul>
+                        </div>
+                        <div class="plan-col plan-center">
+                            <h3>Horarios:</h3>
+                            <ul>${listaHorarios}</ul>
+                        </div>
+                        <div class="plan-col plan-right">
+                            <span style="text-transform:uppercase; font-size:0.8em; color:#666;">Inversión Única</span>
+                            <div class="plan-price">${data.precio}</div>
+                            <button class="inscription-btn">Inscribirme Ahora</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // 5. Mostrar Sección
+            seccion.classList.add("activa");
+            seccion.dataset.abierto = cursoKey;
+
+            // CORRECCIÓN 2: Manejo del triángulo
+            // Si el click vino de un icono (.cursos), movemos el triángulo.
+            // Si vino del menú, ocultamos el triángulo (porque el menú está muy lejos arriba).
+            if (elemento.classList.contains('cursos')) {
+                triangulo.style.opacity = '1';
+                posicionarTriangulo(elemento);
+            } else {
+                triangulo.style.opacity = '0'; // Ocultar triángulo si viene del menú
+                // Hacemos scroll suave hacia la tarjeta para que el usuario sepa que algo pasó
+                setTimeout(() => {
+                    seccion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        });
     });
-});
 
+    function cerrarSeccion() {
+        seccion.classList.remove("activa");
+        seccion.dataset.abierto = "";
+        soloIconos.forEach(icon => icon.classList.remove("activo"));
+    }
 
-// Selecciona todos los botones que harán girar la tarjeta
-document.querySelectorAll('.button').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation(); // evita que afecte otros clicks
-        const tarjeta = btn.closest('.offering'); // busca la tarjeta contenedora
-        tarjeta.classList.toggle('flipped'); // agrega o quita la clase flipped
+    function posicionarTriangulo(elementoIcono) {
+        requestAnimationFrame(() => {
+            const rectIcono = elementoIcono.getBoundingClientRect();
+            const rectContainer = seccion.getBoundingClientRect();
+            const gridRect = document.querySelector('.CURSOS').getBoundingClientRect();
+            
+            const centroIconoX = rectIcono.left + (rectIcono.width / 2);
+            const inicioSeccionX = rectContainer.left;
+            const posRelativa = centroIconoX - inicioSeccionX;
+
+            triangulo.style.left = (posRelativa - 15) + "px";
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        const abiertoKey = seccion.dataset.abierto;
+        if (abiertoKey) {
+            const iconoActivo = document.querySelector(`.cursos[data-curso="${abiertoKey}"]`);
+            if (iconoActivo) posicionarTriangulo(iconoActivo);
+        }
     });
-});
-
-
-

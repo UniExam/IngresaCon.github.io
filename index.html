@@ -13,30 +13,37 @@
 <body>
 
 <header>
-    <img src="LOGO ingresa.png" alt="Logo" class="logo">
+   <!-- LOGO -->
+    <div class="logo-container">
+        <img src="LOGO ingresa.png" alt="Logo Ingresa" class="logo">
+    </div>
+
+    <!-- NAVEGACIÓN -->
     <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="index.html">Inicio</a></li>
 
-    <ul>
-        <li><a href="index.html">Inicio</a></li>
+            <!-- DROPDOWN CURSOS -->
+            <li class="dropdown">
+                <a href="#">Cursos ▼</a>
+                <div class="dropdown-content">
+                    <!-- Los enlaces tienen la clase btn-menu y data-curso para que funcione tu JS -->
+                    <a href="#" class="btn-menu" data-curso="comipems">MEDIA SUPERIOR</a>
+                    <a href="#" class="btn-menu" data-curso="ipn">IPN</a>
+                    <a href="#" class="btn-menu" data-curso="unam">UNAM</a>
+                    <a href="#" class="btn-menu" data-curso="uam">UAM</a>
+                    <a href="#" class="btn-menu" data-curso="uaemex">UAEMEX</a>
+                    <a href="#" class="btn-menu" data-curso="uady">UADY</a>
+                    <a href="#" class="btn-menu" data-curso="uv">UV</a>
+                    <a href="#" class="btn-menu" data-curso="tecnm">TECNM</a>
+                    <a href="#" class="btn-menu" data-curso="uaslp">UASLP</a>
+                </div>
+            </li>
 
-        <li class="dropdown">
-            <a href="#">Cursos ▼</a>
-            <div class="dropdown-content">
-                <a href="COMIPEMS.html">MEDIA SUPERIOR</a>
-                <a href="IPN.html">IPN</a>
-                <a href="UNAM.html">UNAM</a>
-                <a href="UAM.html">UAM</a>
-                <a href="UAEMEX.html">UAEMEX</a>
-                <a href="UADY.html">UADY</a>
-                <a href="UV.html">UV</a>
-                <a href="TECNM.html">TECNM</a>
-            </div>
-        </li>
-
-        <li><a href="NOSOTROS.html">Nosotros</a></li>
-        <li><a href="#contact">Contáctanos</a></li>
-    </ul>
-</nav>
+            <li><a href="NOSOTROS.html">Nosotros</a></li>
+            <li><a href="#app">Contáctanos</a></li>
+        </ul>
+    </nav>
 
     <div class="social-icons">
         <a href="https://wa.me/525524498795"><img src="whts.png" alt="WhatsApp" width="30"></a>
@@ -54,9 +61,11 @@
     <div class="video-content">
         <h1>Transforma tu preparación en resultados reales.</h1>
         <p>Tu futuro empieza con una decisión hoy.</p>
-        <button class="btn-1">
-    <span>Inscríbete</span>
-</button>
+        
+        <!-- AQUÍ ESTÁ EL CAMBIO: Agregamos el onclick -->
+        <button class="btn-1" onclick="document.getElementById('app').scrollIntoView({behavior: 'smooth'})">
+            <span>Inscríbete</span>
+        </button>
 
     </div>
 </section>
@@ -64,51 +73,49 @@
 <!-- NUESTROS CURSOS -->
 <div class="CURSOS">
     <div class="cursos" data-curso="ipn">
-        <img src="poli.png" alt="Politecnico" class="icono-curso" data-curso="ipn">
+        <img src="poli.png" alt="Politecnico" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=IPN'"> <!-- Placeholder por si falla tu imagen -->
         <h3>IPN</h3>
     </div>
     <div class="cursos" data-curso="unam">
-        <img src="unam.png" alt="UNAM" class="icono-curso" data-curso="unam">
+        <img src="unam.png" alt="UNAM" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UNAM'">
         <h3>UNAM</h3>
     </div>
     <div class="cursos" data-curso="uam">
-        <img src="uam.png" alt="UAM" class="icono-curso" data-curso="uam">
+        <img src="uam.png" alt="UAM" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UAM'">
         <h3>UAM</h3>
     </div>
     <div class="cursos" data-curso="uaemex">
-        <img src="uaemex.png" alt="UAEMEX" class="icono-curso" data-curso="uaemex">
+        <img src="uaemex.png" alt="UAEMEX" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UAEMEX'">
         <h3>UAEMEX</h3>
     </div>
     <div class="cursos" data-curso="uady">
-        <img src="uady.png" alt="UADY" class="icono-curso" data-curso="uady">
+        <img src="uady.png" alt="UADY" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UADY'">
         <h3>UADY</h3>
     </div>
     <div class="cursos" data-curso="comipems">
-        <img src="ecoems.png" alt="COMIPEMS" class="icono-curso" data-curso="comipems">
-        <h3>Media Superior</h3>
+        <img src="ecoems.png" alt="COMIPEMS" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=MS'">
+        <h3>Media Sup.</h3>
     </div>
     <div class="cursos" data-curso="uv">
-        <img src="uv.png" alt="UV" class="icono-curso" data-curso="uv">
+        <img src="uv.png" alt="UV" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UV'">
         <h3>UV</h3>
     </div>
     <div class="cursos" data-curso="tecnm">
-        <img src="tecnm.png" alt="TECNM" class="icono-curso" data-curso="tecnm">
+        <img src="tecnm.png" alt="TECNM" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=TECNM'">
         <h3>TECNM</h3>
     </div>
     <div class="cursos" data-curso="uaslp">
-        <img src="UASLP.png" alt="UASLP" class="icono-curso" data-curso="uaslp">
+        <img src="UASLP.png" alt="UASLP" class="icono-curso" onerror="this.src='https://via.placeholder.com/70?text=UASLP'">
         <h3>UASLP</h3>
     </div>
 </div>
 
-<!-- Sección de la tarjeta que aparecerá -->
-<div id="seccion-curso" data-abierto="">
+<!-- 2. CONTENEDOR DE LA TARJETA -->
+<section id="seccion-curso" class="seccion-curso" data-abierto="">
     <div class="triangulo"></div>
-    <div id="contenido-curso"></div>
-</div>
-
-<section id="seccion-curso" class="seccion-curso">
-    <div id="contenido-curso" class="contenido-curso"></div>
+    <div id="contenido-curso" class="contenido-curso" style="width: 100%;">
+        <!-- Aquí se inyecta el HTML con JS -->
+    </div>
 </section>
 
 <!-- INTRODUCCIÓN -->
@@ -127,12 +134,12 @@
                     <div class="offering-front">
                         <img src="Preparacion.jpg" alt="Preparación completa">
                         <h3>Profesores Especializados</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Profesores Especializados</h3>
                         <p class="texto-card">Nuestros maestros altamente capacitados te guían con estrategias efectivas y atención personalizada para que alcances tu máximo potencial.</p>
-                    <button class="button">Ver menos</button>
+                    <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -143,12 +150,12 @@
                     <div class="offering-front">
                         <img src="examen.jpg" alt="Exámenes Simulacro">
                         <h3>Exámenes Simulacro</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Exámenes Simulacro</h3>
                         <p class="texto-card">Simula el examen real, identifica tus fortalezas y mejora tus resultados con nuestros exámenes simulacro ilimitados disponibles 24/7.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -159,12 +166,12 @@
                     <div class="offering-front">
                         <img src="plataforma.jpg" alt="Plataforma Educativa">
                         <h3>Plataforma Educativa</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Plataforma Educativa</h3>
                         <p class="texto-card">Accede a nuestra plataforma educativa y encuentra todos los recursos que necesitas: ejercicios, guías, exámenes y seguimiento de tu progreso en un solo lugar.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -175,12 +182,12 @@
                     <div class="offering-front">
                         <img src="clases online.png" alt="Clases en vivo">
                         <h3>Diferentes Modalidades</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Diferentes Modalidades</h3>
                         <p class="texto-card">Elige la modalidad que se adapte a ti: clases presenciales para interacción directa o en línea para estudiar desde cualquier lugar con total comodidad.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -191,12 +198,12 @@
                     <div class="offering-front">
                         <img src="Temario.png" alt="Temarios">
                         <h3>Temarios Resueltos</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Temarios Resueltos y Actualizados</h3>
                         <p class="texto-card">Accede a temarios totalmente resueltos y siempre actualizados para que estudies con material confiable y al día con los exámenes.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -207,12 +214,12 @@
                     <div class="offering-front">
                         <img src="guía.png" alt="Guías">
                         <h3>Guías Resueltas</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Guías Resueltas</h3>
                         <p class="texto-card">Accede a nuestras guías completamente resueltas basadas en las oficiales para que estudies de manera eficiente y refuerces tus conocimientos paso a paso.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -223,12 +230,12 @@
                     <div class="offering-front">
                         <img src="horarios.png" alt="Horarios">
                         <h3>Horarios Flexibles</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Horarios Flexibles</h3>
                         <p class="texto-card">Organiza tu estudio según tu tiempo: nuestras clases y recursos están disponibles en horarios flexibles que se adaptan a tu rutina.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -239,12 +246,12 @@
                     <div class="offering-front">
                         <img src="clase.png" alt="Clases">
                         <h3>Clases Extra</h3>
-                        <button class="button">Ver más</button>
+                        <button class="button ver-mas">Ver más</button>
                     </div>
                     <div class="offering-back">
                         <h3>Clases Extra</h3>
                         <p class="texto-card">En caso de que lo requieras aprovecha nuestras clases extra gratuitas y potencia tu preparación sin pagar de más.</p>
-                        <button class="button">Ver menos</button>
+                        <button class="button ver-menos">Ver menos</button>
                     </div>
                 </div>
             </div>
@@ -254,18 +261,22 @@
 </div>
 <!-- SCRIPTS TARJETAS -->
 <script>
-document.querySelectorAll('.ver-mas').forEach(button => {
-    button.addEventListener('click', function() {
-        this.closest('.offering').classList.add('flipped');
-    });
-});
+        // Lógica para girar al hacer clic en "Ver más"
+        document.querySelectorAll('.ver-mas').forEach(button => {
+            button.addEventListener('click', function() {
+                // Busca el contenedor padre .offering y le agrega la clase .flipped
+                this.closest('.offering').classList.add('flipped');
+            });
+        });
 
-document.querySelectorAll('.ver-menos').forEach(button => {
-    button.addEventListener('click', function() {
-        this.closest('.offering').classList.remove('flipped');
-    });
-});
-</script>
+        // Lógica para volver al hacer clic en "Volver"
+        document.querySelectorAll('.ver-menos').forEach(button => {
+            button.addEventListener('click', function() {
+                // Busca el contenedor padre .offering y le quita la clase .flipped
+                this.closest('.offering').classList.remove('flipped');
+            });
+        });
+    </script>
 
 <!-- CONTACTO -->
 <div id="app">
