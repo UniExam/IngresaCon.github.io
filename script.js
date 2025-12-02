@@ -36,7 +36,7 @@ const dbCursos = {
         },
         comipems: {
             titulo: "ECOEMS (Media Superior)",
-            precio: "$3,800",
+            precio: "$5,000",
             color: "#d18b29ff", // Verde Azulado
             temario: ["Preparación por áreas", "Taller de apoyo emocional", "Taller de actividades y juegos", "Taller de pláticas para tener una buena actitud", "Examen diagnóstico", "4 exámenes simulacro"],
             horarios: ["Matutino: Lunes a Jueves: 09:00 - 11:30 Viernes: Examen en casa", "Vespertino: Lunes a Jueves: 16:00 - 18:30 Viernes: Examen en casa", "Sábado: 09:00 a 13:00 y de 13:00 a 14:00 se realiza examen"]
@@ -130,7 +130,7 @@ const dbCursos = {
                         <div class="plan-col plan-right">
                             <span style="text-transform:uppercase; font-size:0.8em; color:#666;">Inversión Única</span>
                             <div class="plan-price">${data.precio}</div>
-                            <button class="inscription-btn">Inscribirme Ahora</button>
+                            <a href="#app" class="inscription-btn">Inscribirme Ahora</a>
                         </div>
                     </div>
                 </div>
@@ -183,3 +183,56 @@ const dbCursos = {
             if (iconoActivo) posicionarTriangulo(iconoActivo);
         }
     });
+
+    const form = document.getElementById("contactForm");
+    const btnSpinner = document.getElementById("btnSpinner");
+    const btnText = document.getElementById("btnText");
+    const submitBtn = document.getElementById("submitBtn");
+
+    // AQUÍ ESTÁ TU URL YA CONFIGURADA
+    const formspreeUrl = "https://formspree.io/f/xanwzlzw";
+
+    async function handleSubmit(event) {
+        event.preventDefault(); // Evita recargar la página
+
+        // 1. Mostrar carga
+        btnSpinner.classList.remove("hidden");
+        btnText.style.display = "none";
+        submitBtn.disabled = true;
+
+        const data = new FormData(event.target);
+
+        try {
+            const response = await fetch(formspreeUrl, {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Éxito
+                alert("¡Gracias! Un asesor se pondrá en contacto.");
+                form.reset(); 
+            } else {
+                // Error
+                const errorData = await response.json();
+                if (Object.hasOwn(errorData, 'errors')) {
+                    alert(errorData["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    alert("Ocurrió un error al enviar el formulario.");
+                }
+            }
+        } catch (error) {
+            alert("Hubo un problema de conexión. Intenta de nuevo.");
+        } finally {
+            // 2. Restaurar botón
+            btnSpinner.classList.add("hidden");
+            btnText.style.display = "block";
+            submitBtn.disabled = false;
+        }
+    }
+
+    form.addEventListener("submit", handleSubmit);
+    

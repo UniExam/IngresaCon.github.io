@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros</title>
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    background-image: url('Background.png');
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: repeat;
-}
+    <title>Nosotros | Ingresa.con</title>
+    
+    <!-- Google Fonts: Poppins para un look moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos (Reemplaza las imagenes png de redes sociales) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-header {
-    background-color: #000000;
+    <style>
+        :root {
+            /* Variables de color para mantener consistencia */
+            --primary-color: #135fb6;    /* Azul */
+            --secondary-color: #b2dd74;  /* Verde claro */
+            --accent-color: #ffec3c;     /* Amarillo */
+            --dark-bg: #1a1a1a;
+            --light-bg: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER SUPERIOR --- */
+      header {
+    background-color: #ffffff;
     color: white;
     padding: 0 2%; /* Usa un porcentaje para que se ajuste al ancho de la pantalla */
     display: flex;
@@ -28,89 +48,58 @@ header {
     z-index: 1000;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.contact {
-    color: white;
-    font-size: 18px;
-    display: flex; /* Asegura que el texto pueda alinearse correctamente */
-    align-items: center; /* Centra verticalmente el texto */
-}
-/* IMAGENES DE REDES DEL HEADER */
-.social-icons {
-    display: flex;
-    gap: 20px; /* Espacio entre los iconos */
-    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
-    align-items: center; /* Centra verticalmente los iconos */
+
+
+.logo {
+    height: 200px;
+    width: 200px; 
 }
 
 .main-nav {
+    flex: 1;                  
     display: flex;
-    justify-content: space-between; /* Espacia los elementos a ambos lados */
-    align-items: center; /* Centra verticalmente todos los elementos */
-    background-color: #ffffff;
-    padding: 5px 2%; /* Ajusta el padding para un mejor espaciado */
-    color: rgb(0, 0, 0);
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-}
-
-.logo img {
-    height: auto; /* Deja que la altura se ajuste automáticamente */
-    width: 10vw; /* Usa un valor en vw para un tamaño responsivo */
-    max-height: 60px; /* Limita la altura máxima del logo */
+    justify-content: center;    
 }
 
 .main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Flex para alinear los elementos de la lista en línea */
-    flex-wrap: wrap; /* Permite que los elementos de la lista se envuelvan */
 }
 
-.main-nav li {
-    margin-left: 10px; /* Espacio entre los elementos de la lista */
+.main-nav ul li a {
+    font-size: 16px;           
+    font-weight: 500;          
+    color: #333;              
+    text-decoration: none;      
+    padding: 8px 12px;          
+    border-radius: 8px;         
+    transition: 0.3s ease;     
+    font-family: 'Poppins', sans-serif;
 }
 
-.main-nav a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    padding: 5px 10px; /* Espaciado interno de los enlaces */
+.main-nav ul li a:hover {
+    background-color: #f0f0f0;  /* Fondo sutil */
+    color: #000;                /* Texto más oscuro */
 }
 
-.main-nav a:hover {
-    background: #707272; /* Color de fondo al pasar el mouse */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 480px) {
-    .main-nav {
-        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-        align-items: flex-start; /* Alinea los elementos a la izquierda */
-    }
-
-    .main-nav ul {
-        justify-content: center; /* Centra los elementos de la lista */
-    }
-
-    .main-nav li {
-        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
-        margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
-    }
-}
 
 .dropdown {
-    position: relative; /* Necesario para posicionar el contenido del dropdown */
-    display: inline-block; /* Hace que el dropdown se muestre en línea */
+    position: relative; 
+    display: inline-block;
 }
 
 .dropdown-content {
-    display: none; /* Oculta el contenido del dropdown por defecto */
-    position: absolute; /* Posiciona el contenido de forma absoluta */
-    background-color: #ffffff; /* Color de fondo del dropdown */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    z-index: 1001; /* Asegura que el dropdown esté por encima de otros elementos */
-    border-radius: 5px; /* Bordes redondeados para el dropdown */
-    min-width: 120px; /* Reduce el ancho mínimo del dropdown */
+    display: none; 
+    position: absolute;
+    background-color: #ffffff; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1001;
+    border-radius: 5px; 
+    min-width: 120px;
 }
 
 .dropdown-content a {
@@ -136,626 +125,383 @@ header {
     color: white; /* Cambia el color del texto al blanco */
 }
 
-/* SLIDER */
-.slider-container {
-        position: relative;
-        width: 100%;
-        height: 70vh; /* Ajusta la altura al 70% de la pantalla visible */
-        z-index: 1; /* Fondo */
-    }
-    .slider {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    
-    .slider img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    /* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .slider-container {
-        height: 50vh; /* Ajusta la altura al 50% de la pantalla visible en dispositivos pequeños */
-    }
-
-    .slider img {
-        height: auto; /* Permite que la imagen mantenga sus proporciones */
-    }
-}
-    .work-with-me {
-        position: relative; /* Para que el contenido esté sobre el slider */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 100px;
-        height: 50vh; /* Igual que el slider */
-        z-index: 2; /* Por encima del slider */
-        color: #333;
-        background-color: #e8e9e3; /* Cambia el color de fondo */
-    }
-
-    .work-image {
-        width: 45%;
-        position: relative;
-        top: -80px; /* Sube la imagen más arriba */
-    }
-
-    .work-image img {
-        width: 100%;
-        border-radius: 10px;
-    }
-/* TEXTO A LADO DE LA IMAGEN */
-.work-text {
-    width: 45%;
-    padding: 20px; /* Añade espacio alrededor del texto */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
-    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
-    text-align: center; /* Centra el botón y el texto */
-}
-
-/* TITULO A LADO DE LA IMAGEN */
-    .work-text h1 {
-        font-size: 2rem;
-        margin-bottom: 10px;
-        color: rgb(36, 88, 148); /* Texto en blanco */
-        text-align: center;
-    }
-
-    .work-text h1 span {
-        font-style: italic;
-    }
-
-    .work-text h2 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-
-    .work-text p {
-        margin-bottom: 15px;
-        line-height: 1.5;
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    button {
-    padding: 10px 30px;
-    background-color: #ffec3c;
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #24c9c9;
-  }
-      /* Responsividad para pantallas pequeñas */
-@media (max-width: 768px) {
-    .work-with-me {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 20px;
-    }
-
-    .work-image {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
-
-    .work-image img {
-        width: 100%;
-    }
-
-    .work-text {
-        width: 100%;
-        padding: 20px;
-    }
-}
-@media (min-width: 1024px) {
-    .work-with-me {
-        position: relative; /* Para que el contenido esté sobre el slider */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 100px;
-        height: 50vh; /* Igual que el slider */
-        z-index: 2; /* Por encima del slider */
-        color: #333;
-        background-color: #e8e9e3; /* Cambia el color de fondo */
-    }
-
-    .work-image {
-        width: 55%;
-        position: relative;
-        top: -80px; /* Sube la imagen más arriba */
-    }
-
-    .work-image img {
-        width: 80%;
-        border-radius: 10px;
-        margin-left: 50px;
-    }
-
-    .work-text {
-    width: 40%;
-    margin-top: -120px;
-    margin-left: 30px;
-    margin-right: 10px ;
-    padding: 20px; /* Añade espacio alrededor del texto */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
-    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
-    text-align: center; /* Centra el botón y el texto */
-}
-}
-@media (min-width: 2560px) {
-    .work-with-me {
-        margin-top: -80px;
-        position: relative; /* Para que el contenido esté sobre el slider */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 100px;
-        height: 50vh; /* Igual que el slider */
-        z-index: 2; /* Por encima del slider */
-        color: #333;
-        background-color: #e8e9e3; /* Cambia el color de fondo */
-    }
-
-    .work-image {
-        width: 45%;
-        position: relative;
-        top: -150px; /* Sube la imagen más arriba */
-    }
-
-    .work-image img {
-        width: 100%;
-        border-radius: 10px;
-    }
-
-    .work-text {
-    width: 55%;
-    margin-top: -150px;
-    margin-left: 60px;
-    margin-right: -50px ;
-    padding: 20px; /* Añade espacio alrededor del texto */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    color: rgb(78, 76, 76); /* Cambia el color del texto a blanco */
-    background-color: rgb(255, 255, 255); /* Cambia el color del fondo a negro */
-    text-align: center; /* Centra el botón y el texto */
-}
-}
-
-    .imagine-section {
-    text-align: center;
-    padding: 10px 60px; /* Ajusta el padding verticalmente */
-    background-color: #a9d5ee;
-}
-.imagine-section h2 {
-    font-size: 45px;
-    color: #135fb6;
-    margin-top: 30px; /* Ajusta este valor para bajar más el título principal */
-}
-.imagine-list {
+.social-icons {
     display: flex;
-    justify-content: space-around; /* Alinea las columnas con espacio alrededor */
-    margin-top: 0px;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-left: auto; /* Esto empuja los iconos hacia la derecha */
+    align-items: center; /* Centra verticalmente los iconos */
 }
 
-.list-column {
-    flex: 1; /* Asegura que las columnas ocupen el espacio disponible igualmente */
-    padding: 0 50px; /* Agrega padding interno para evitar que el contenido esté pegado a los bordes */
-}
+        /* --- HERO / BANNER --- */
+        .hero-banner {
+            width: 100%;
+            height: 60vh;
+            background-image: url(Bannerpag.png);
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 5px;
+        }
 
-.list-column ul {
-    list-style-type: none;
-    padding: 0px; /* Elimina el padding por defecto de las listas */
-    margin: 60px; /* Elimina el margen por defecto de las listas */
-}
+        /* --- QUIÉNES SOMOS --- */
+        .about-section {
+            padding: 80px 5%;
+            background-color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
 
-.list-item {
-    display: flex;
-    align-items: center; /* Alinea la imagen y el texto verticalmente al centro */
-    margin-bottom: 30px; /* Espacio entre los elementos de la lista */
-}
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
 
-.list-icon {
-    width: 80px; /* Ajusta el tamaño de la imagen */
-    height: 80px; /* Mantiene la proporción de la imagen */
-    margin-right: 15px; /* Espacio entre la imagen y el texto */
-    margin-top: 20px; /* Ajusta este valor según sea necesario */
-}
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 20px 20px 0px var(--secondary-color); /* Efecto decorativo */
+        }
 
-.list-text {
-    text-align: left; /* Alinea el texto a la izquierda */
-}
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
 
-.list-text h3 {
-    margin: 0 0 15px 0; /* Espacio debajo del título */
-    font-size: 1.2rem; /* Tamaño del título */
-}
+        .about-text h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
 
-.list-text p {
-    margin: 0; /* Elimina el margen por defecto del párrafo */
-}
-@media (max-width: 768px) {
-    .imagine-section {
-        padding: 10px 20px; /* Reduce el padding para que se ajuste mejor en pantallas pequeñas */
-    }
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
 
-    .imagine-section h2 {
-        font-size: 30px; /* Reduce el tamaño del título principal */
-        margin-top: 20px;
-    }
+        .btn-privacy {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
 
-    .imagine-list {
-        flex-direction: column; /* Cambia a una sola columna en pantallas pequeñas */
-        align-items: center;
-    }
+        .btn-privacy:hover {
+            background-color: #e6d42e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
-    .list-column {
-        padding: 0 20px; /* Reduce el padding en las columnas */
-        margin-bottom: 20px; /* Espacio entre las columnas en la vista vertical */
-    }
+        /* --- VALORES --- */
+        .values-section {
+            padding: 80px 5%;
+            background-color: #eaf6ff; /* Azul muy suave */
+            text-align: center;
+        }
 
-    .list-icon {
-        width: 60px; /* Reduce el tamaño del ícono */
-        height: 60px;
-        margin-right: 10px;
-    }
+        .values-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
 
-    .list-text h3 {
-        font-size: 1rem; /* Ajusta el tamaño del título en el texto de la lista */
-    }
-}
-@media (min-width: 1024px) {
-    .imagine-section {
-    text-align: center;
-    padding: 10px 10px; /* Ajusta el padding verticalmente */
-    background-color: #a9d5ee;
-}
-.imagine-section h2 {
-    font-size: 45px;
-    color: #135fb6;
-    margin-top: 30px; /* Ajusta este valor para bajar más el título principal */
-}
-.imagine-list {
-    display: flex;
-    justify-content: space-around; /* Alinea las columnas con espacio alrededor */
-    margin-top: 0px;
-}
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.list-column {
-    flex: 1; /* Asegura que las columnas ocupen el espacio disponible igualmente */
-    padding: 0 50px; /* Agrega padding interno para evitar que el contenido esté pegado a los bordes */
-}
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
 
-.list-column ul {
-    list-style-type: none;
-    padding: 0px; /* Elimina el padding por defecto de las listas */
-    margin: 20px; /* Elimina el margen por defecto de las listas */
-}
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
 
-.list-item {
-    display: flex;
-    align-items: center; /* Alinea la imagen y el texto verticalmente al centro */
-    margin-bottom: 30px; /* Espacio entre los elementos de la lista */
-}
+        .value-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            background: #e1effc;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
 
-.list-icon {
-    width: 80px; /* Ajusta el tamaño de la imagen */
-    height: 80px; /* Mantiene la proporción de la imagen */
-    margin-right: 15px; /* Espacio entre la imagen y el texto */
-    margin-top: 20px; /* Ajusta este valor según sea necesario */
-}
+        .value-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
 
-.list-text {
-    text-align: left; /* Alinea el texto a la izquierda */
-}
+        .value-content p {
+            font-size: 0.95rem;
+            color: #666;
+        }
 
-.list-text h3 {
-    margin: 0 0 15px 0; /* Espacio debajo del título */
-    font-size: 1.2rem; /* Tamaño del título */
-}
+        /* --- MISIÓN Y VISIÓN --- */
+        .mv-section {
+            padding: 80px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-.list-text p {
-    margin: 0; /* Elimina el margen por defecto del párrafo */
-}
-}
-.container {
-    display: flex;
-    gap: 100px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px; /* Agregar un margen superior para más separación */
-}
-.box {
-    background-color: #b2dd74;
-    color: rgb(0, 0, 0);
-    width: 400px;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align:justify;
-    font-family: 'Times New Roman', Times, serif
-}
-.box h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-    font-family: 'Times New Roman', Times, serif
-}
-.box p {
-    font-size: 17px;
-    font-weight: bold;
-    padding: 0px 50px;
-}
-.box a {
-    text-decoration: none;
-    background-color: white;
-    color: #000000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-.box a:hover {
-    background-color: #ddd;
-}
-  /* Responsividad para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 20px; /* Reduce el espacio entre cajas */
-        margin-top: 20px;
-    }
+        .mv-box {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
 
-    .box {
-        width: 80%; /* Ajusta el ancho a un porcentaje */
-        height: auto; /* Deja que la altura se ajuste automáticamente */
-        padding: 20px; /* Agrega un poco de padding interno */
-    }
+        .mv-box:hover {
+            transform: scale(1.02);
+        }
 
-    .box h2 {
-        font-size: 24px; /* Reduce el tamaño de fuente */
-    }
+        .mv-box h2 {
+            font-family: 'Poppins', serif; /* Opcional: serif para títulos */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-    .box ul {
-        font-size: 16px;
-        padding: 0 20px; /* Reduce el padding lateral */
-    }
-}
-footer {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 20px; /* Aumenta este valor para bajar el pie de página */
-        border-top: 1px solid rgb(255, 255, 255); /* Línea negra delgada */
-        background-color: #000000;
-        font-size: 14px;
-    }
+        .mv-box p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
 
-    .footer-container p {
-        font-size: 1em;
-        color: rgb(255, 255, 255);
-        margin-bottom: 20px;
-        margin-top: 10px;
-    }
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
 
-    .contact-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 100px; /* Espacio entre los iconos de contacto */
-    }
+        .footer-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
 
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-    .contact-item span {
-        font-size: 1.2em;
-        color: rgb(255, 255, 255);
-    }
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
 
-    @media (max-width: 768px) {
-    .contact-info {
-        flex-direction: column; /* Cambia la dirección a columna en móviles */
-        gap: 20px; /* Reduce el espacio entre los iconos de contacto */
-    }
+        .footer-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
 
-    .contact-item {
-        justify-content: center; /* Centra los iconos de contacto en móviles */
-    }
+        .footer-item a {
+            color: white;
+            text-decoration: none;
+        }
 
-    .contact-item span {
-        font-size: 1em; /* Reduce el tamaño de la fuente en móviles */
-    }
-}
-
-
-</style>
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; text-align: center; }
+            .nav-links { display: none; /* Aquí iría un script JS para menú hamburguesa real */ }
+            /* Para efectos de esta demo simple, mostramos links en columna */
+            .nav-links { display: flex; flex-direction: column; width: 100%; text-align: center; padding-top: 10px; }
+            .main-nav { flex-direction: column; }
+            .about-section { flex-direction: column-reverse; } /* Imagen arriba en móvil */
+            .mv-section { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
-    <header>
+ <header>
+    <div class="logo-container">
+        <img src="LOGO ingresa.png" alt="Logo Ingresa" class="logo">
     </div>
-    <h1 class="contact">Contacto: 55 2449 8795</h1>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+            <a href="index.html#CURSOS">Cursos</a>
+            <li><a href="NOSOTROS.html">Nosotros</a></li>
+            <li><a href="index.html#app">Contáctanos</a></li>
+        </ul>
+    </nav>
+
     <div class="social-icons">
-        <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
+        <a href="https://wa.me/525524498795"><img src="whts.png" alt="WhatsApp" width="30"></a>
         <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
         <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
     </div>
 </header>
-</nav>
-<nav class="main-nav">
-    <div class="logo">
-        <img src="Ingresaentrada.jpeg" alt="Logo de la empresa">
+    <div class="hero-banner">
+        <div class="hero-title">Conoce Ingresa.con</div>
     </div>
-    <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li class="dropdown">
-            <a href="#">Cursos ▼</a>
-            <div class="dropdown-content">
-                <a href="COMIPEMS.html">MEDIA SUPERIOR</a>
-                <a href="IPN.html">IPN</a>
-                <a href="UNAM.html">UNAM</a>
-                <a href="UAM.html">UAM</a>
-                <a href="UAEMEX.html">UAEMEX</a>
-                <a href="UADY.html">UADY</a>
-                <a href="UV.html">UV</a>
-                <a href="TECNM.html">TECNM</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="#">Iniciar Sesión ▼</a>
-            <div class="dropdown-content">
-                <a href="login.html">Alumnos</a>
-            </div>
-        </li>
-        <li><a href="NOSOTROS.html">Nosotros</a></li>
-        <li><a href="index.html#contact">Contáctanos</a></li>
-    </ul>
-</nav>
-<!-- Slider Background -->
-<div class="slider-container">
-    <div class="slider">
-        <div class="slide"><img src="Bannerpag.png" alt="Imagen 1"></div>
-    </div>
-</div>
 
-<!-- QUIENES SOMOS -->
-<section class="work-with-me">
-    <div class="work-image">
-        <img src="logotipo.jpeg" alt="Woman looking in the mirror">
-    </div>
-    <div class="work-text">
-        <h1>¿Quiénes somos?</h1>
-        <p>Somos un centro educativo con más de 30 años de experiencia, especializado en preparar a estudiantes para su ingreso a preparatorias y universidades de prestigio. Ofrecemos cursos tanto presenciales como en línea, adaptados a tus necesidades, para que puedas alcanzar tus metas académicas y asegurar tu futuro. Con nosotros, recibirás la guía y el apoyo necesarios para triunfar en tus exámenes de admisión y acceder a la institución de tus sueños.</p>
-        <button type="button">
-            <a href="Aviso de privacidad.html" style="text-decoration: none; color: inherit;">Aviso de Privacidad</a>
-        </button>
-    </div>
-</div>
-</section>
-<!-- VALORES -->
-<section class="imagine-section">
-    <h2>Valores Ingresa.con</h2>
-    <div class="imagine-list">
-        <div class="list-column">
-            <ul>
-                <li>
-                    <div class="list-item">
-                        <img src="Compromiso.png" alt="Compromiso" class="list-icon">
-                        <div class="list-text">
-                            <h3>Compromiso</h3>
-                            <p>Enfocarse en los resultados y el éxito académico de los estudiantes, brindando apoyo adicional y recursos según sea necesario.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list-item">
-                        <img src="Responsabilidad.png" alt="Responsabilidad" class="list-icon">
-                        <div class="list-text">
-                            <h3>Responsabilidad</h3>
-                            <p>Brindar asistencia y orientación adaptada a las necesidades individuales de cada estudiante, comentarios constructivos para ayudar a los estudiantes a mejorar.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list-item">
-                        <img src="Honestidad.png" alt="Honestidad" class="list-icon">
-                        <div class="list-text">
-                            <h3>Honestidad</h3>
-                            <p>Ser claro y directo sobre el contenido del curso, los costos, y las expectativas para evitar malentendidos, evitando exageraciones o promesas engañosas.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <section class="about-section">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudiantes estudiando">
         </div>
-        <div class="list-column">
-            <ul>
-                <li>
-                    <div class="list-item">
-                        <img src="Integridad.png" alt="Integridad" class="list-icon">
-                        <div class="list-text">
-                            <h3>Integridad</h3>
-                            <p>Actuar con honestidad y transparencia en todas las interacciones y servicios, garantizando la confiabilidad de los cursos y la veracidad de la información proporcionada.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list-item">
-                        <img src="Respeto.png" alt="Respeto" class="list-icon">
-                        <div class="list-text">
-                            <h3>Respeto</h3>
-                            <p>Prestar atención a las preocupaciones y sugerencias de los estudiantes, y considerar sus perspectivas de manera seria, evitando cualquier forma de discriminación o trato injusto.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list-item">
-                        <img src="Inovación.png" alt="Innovación" class="list-icon">
-                        <div class="list-text">
-                            <h3>Innovación</h3>
-                            <p>Utilizar métodos y tecnologías modernas para mejorar la enseñanza y adaptarse a las necesidades cambiantes de los estudiantes.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class="about-text">
+            <h1>¿Quiénes somos?</h1>
+            <p>Somos un centro educativo con más de 30 años de experiencia, especializado en preparar a estudiantes para su ingreso a preparatorias y universidades de prestigio.</p>
+            <p>Ofrecemos cursos tanto presenciales como en línea, adaptados a tus necesidades, para que puedas alcanzar tus metas académicas y asegurar tu futuro. Con nosotros, recibirás la guía y el apoyo necesarios para triunfar en tus exámenes de admisión y acceder a la institución de tus sueños.</p>
+            
+            <a href="Aviso de privacidad.html" class="btn-privacy">Ver Aviso de Privacidad</a>
         </div>
-    </div>
-</section>
-<!-- MISIÓN -->
-<div class="container">
-    <div class="box">
-        <h2>MISIÓN</h2>
-        <p style="line-height: 1.5;">
-            Nuestra misión es empoderar a los estudiantes proporcionándoles herramientas educativas de alta calidad y estrategias personalizadas para superar con éxito los exámenes de ingreso a la preparatoria y la universidad.Nos comprometemos a ofrecer un ambiente de aprendizaje integral y motivador, que fomente el desarrollo académico.</p>
-    </div>
-    <div class="box">
-        <h2>VISIÓN</h2>
-        <p style="line-height: 1.5;">
-            Ser reconocidos como líderes marcando la diferencia en la vida de miles de estudiantes a través de un enfoque innovador, integral y accesible. Aspiramos a ser la opción preferida por estudiantes y padres, impactando positivamente en la educación y contribuyendo al desarrollo de una sociedad más preparada y competitiva.</p>
-    </div>
-</div>
-<footer>
-    <div class="footer-container">
-        <p>Escríbenos por medio del chat de la página o:</p>
-        <div class="contact-info">
-            <div class="contact-item">
-                <a href="https://wa.me/525524498795"><img src="wts.png" alt="WhatsApp" width="30"></a>
-                <span>5524498795</span>
+    </section>
+
+  <section class="values-section">
+        <h2>Valores Ingresa.con</h2>
+        <div class="values-grid">
+    
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                <div class="value-content">
+                    <h3>Compromiso</h3>
+                    <p>Enfocarse en los resultados y el éxito académico de los estudiantes, brindando apoyo adicional y recursos según sea necesario.</p>
+                </div>
             </div>
-            <div class="contact-item">
-                <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA"><img src="fb.png" alt="Facebook" width="30"></a>
-                <span>Ingresa.con</span>
+    
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-user-shield"></i></div>
+                <div class="value-content">
+                    <h3>Responsabilidad</h3>
+                    <p>Brindar asistencia y orientación adaptada a las necesidades individuales de cada estudiante y comentarios constructivos.</p>
+                </div>
             </div>
-            <div class="contact-item">
-                <a href="https://www.instagram.com/ingresacon/"><img src="ig.png" alt="Instagram" width="30"></a>
-                <span>Ingresa.con</span>
+    
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                <div class="value-content">
+                    <h3>Honestidad</h3>
+                    <p>Ser claro y directo sobre el contenido del curso y expectativas para evitar malentendidos, evitando exageraciones.</p>
+                </div>
+            </div>
+   
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-star"></i></div>
+                <div class="value-content">
+                    <h3>Integridad</h3>
+                    <p>Actuar con transparencia en todas las interacciones, garantizando la confiabilidad de los cursos.</p>
+                </div>
+            </div>
+   
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-heart"></i></div>
+                <div class="value-content">
+                    <h3>Respeto</h3>
+                    <p>Prestar atención a las preocupaciones y sugerencias de los estudiantes, evitando cualquier forma de discriminación.</p>
+                </div>
+            </div>
+  
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="value-content">
+                    <h3>Innovación</h3>
+                    <p>Utilizar métodos y tecnologías modernas para mejorar la enseñanza y adaptarse a las necesidades cambiantes.</p>
+                </div>
+            </div>
+ 
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-award"></i></div>
+                <div class="value-content">
+                    <h3>Calidad</h3>
+                    <p>Mantener los más altos estándares educativos en nuestro material y enseñanza para garantizar la excelencia.</p>
+                </div>
+            </div>
+ 
+            <div class="value-card">
+                <div class="value-icon"><i class="fas fa-users"></i></div>
+                <div class="value-content">
+                    <h3>Empatía</h3>
+                    <p>Entender los retos de cada estudiante para apoyarlos emocional y académicamente en su camino al éxito.</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    </section>
+
+    <!-- Sección Misión y Visión -->
+    <section class="mv-section">
+        <div class="mv-box">
+            <h2>MISIÓN</h2>
+            <p>Nuestra misión es empoderar a los estudiantes proporcionándoles herramientas educativas de alta calidad y estrategias personalizadas para superar con éxito los exámenes de ingreso a la preparatoria y la universidad. Nos comprometemos a ofrecer un ambiente de aprendizaje integral y motivador.</p>
+        </div>
+        <div class="mv-box">
+            <h2>VISIÓN</h2>
+            <p>Ser reconocidos como líderes marcando la diferencia en la vida de miles de estudiantes a través de un enfoque innovador, integral y accesible. Aspiramos a ser la opción preferida por estudiantes y padres, impactando positivamente en la educación.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <p>Escríbenos por medio del chat de la página o:</p>
+            <div class="footer-contact">
+                <div class="footer-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/525524498795" target="_blank">55 2449 8795</a>
+                </div>
+                <div class="footer-item">
+                    <i class="fab fa-facebook"></i>
+                    <a href="https://www.facebook.com/IngresaUNAM/?locale=es_LA" target="_blank">Ingresa.con</a>
+                </div>
+                <div class="footer-item">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/ingresacon/" target="_blank">Ingresa.con</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Script -->
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e74f25df-c4f6-4c82-8964-59631d82ef23";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
 </body>
 </html>

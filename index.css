@@ -106,6 +106,67 @@ header {
     align-items: center; /* Centra verticalmente los iconos */
 }
 
+@media (max-width: 768px) {
+    
+    header {
+        /* Cambiamos la dirección a columna para apilar elementos */
+        flex-direction: column;
+        height: auto; /* La altura se ajusta al contenido */
+        padding: 15px;
+        gap: 15px; /* Espacio entre logo, menú e iconos */
+    }
+
+    .logo {
+        /* Hacemos el logo un poco más pequeño en móvil */
+        width: 120px;
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .main-nav ul {
+        /* Cambiamos el menú a vertical */
+        flex-direction: column;
+        width: 100%;
+        align-items: center; /* Centramos los textos */
+        gap: 10px;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block; /* El enlace ocupa todo el ancho disponible para facilitar el clic */
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.8); /* Fondo ligero para legibilidad */
+    }
+
+    .dropdown {
+        width: 100%; /* El contenedor del dropdown también ocupa todo el ancho */
+    }
+
+    .dropdown-content {
+        position: relative; /* Ya no flota, se empuja el contenido hacia abajo */
+        box-shadow: none;
+        border: 1px solid #ddd;
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+
+    .social-icons {
+        margin-left: 0; /* Quitamos el auto-margin */
+        justify-content: center; /* Centramos los iconos */
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
 /*==============================Final del HEADER==========================*/
 
 /* Contenedor del video */
@@ -465,6 +526,11 @@ header {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+}
+
+h3 {
+    font-size: 60px;
+    color: #661313;
 }
 
 h2 {
